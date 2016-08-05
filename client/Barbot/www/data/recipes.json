@@ -1,0 +1,241 @@
+[
+	{
+		"name": "Screwdriver",
+		"image": "screw_driver_small.png",
+		"description": "",
+		"ingredients": [
+			{
+				"name": "Vodka",
+				"coordinate": "X-4995",
+				"amount": "40"
+			},
+			{
+				"name": "Orange Juice",
+				"coordinate": "X-2520",
+				"amount": "200"
+			}
+		]
+	},
+	{
+		"name": "Cuba Libre",
+		"image": "cuba_libre_small.png",
+		"description": "",
+		"ingredients": [
+			{
+				"name": "White Rum",
+				"coordinate": "X-4010",
+				"amount": "40"
+			},
+			{
+				"name": "Coca-Cola",
+				"coordinate": "X-1000",
+				"amount": "200"
+			}
+		]
+	},
+	{
+		"name": "Malibu Sunrise",
+		"image": "malibu_sunrise_small.png",
+		"description": "",
+		"ingredients": [
+			{
+				"name": "White Rum",
+				"coordinate": "X-4010",
+				"amount": "40"
+			},
+			{
+				"name": "Orange Juice",
+				"coordinate": "X-2520",
+				"amount": "180"
+			},
+			{
+				"name": "Grenadine",
+				"coordinate": "X-3000",
+				"amount": "20"
+			}
+		]
+	},
+	{
+		"name": "Sex on the Beach",
+		"image": "sex_on_the_beach_small.png",
+		"description": "",
+		"ingredients": [
+			{
+				"name": "Vodka",
+				"coordinate": "X-4995",
+				"amount": "40"
+			},
+			{
+				"name": "Peach Liqueur",
+				"coordinate": "X-3500",
+				"amount": "20"
+			},
+			{
+				"name": "Orange Juice",
+				"coordinate": "X-2520",
+				"amount": "80"
+			},
+			{
+				"name": "Cranberry Juice",
+				"coordinate": "X-2000",
+				"amount": "80"
+			},
+			{
+				"name": "Grenadine",
+				"coordinate": "X-3000",
+				"amount": "20"
+			}
+		]
+	},
+	{
+		"name": "Whiskey Cola",
+		"image": "whiskey_cola_small.png",
+		"description": "",
+		"ingredients": [
+			{
+				"name": "Whiskey",
+				"coordinate": "X-4500",
+				"amount": "40"
+			},
+			{
+				"name": "Coca-Cola",
+				"coordinate": "X-1000",
+				"amount": "200"
+			}
+		]
+	},
+	{
+		"name": "Cape Codder",
+		"image": "cape_codder_small.png",
+		"description": "",
+		"ingredients": [
+			{
+				"name": "Vodka",
+				"coordinate": "X-4995",
+				"amount": "40"
+			},
+			{
+				"name": "Cranberry Juice",
+				"coordinate": "X-2000",
+				"amount": "200"
+			}
+		]
+	},
+	{
+		"name": "Woo Woo",
+		"image": "woo_woo_small.png",
+		"description": "",
+		"ingredients": [
+			{
+				"name": "Vodka",
+				"coordinate": "X-4995",
+				"amount": "40"
+			},
+			{
+				"name": "Peach Liqueur",
+				"coordinate": "X-3500",
+				"amount": "20"
+			},
+			{
+				"name": "Cranberry Juice",
+				"coordinate": "X-2000",
+				"amount": "160"
+			}
+		]
+	},
+	{
+		"name": "Wild Wild West",
+		"image": "wild_wild_west_small.png",
+		"description": "",
+		"ingredients": [
+			{
+				"name": "Whiskey",
+				"coordinate": "X-4500",
+				"amount": "40"
+			},
+			{
+				"name": "Peach Liqueur",
+				"coordinate": "X-3500",
+				"amount": "20"
+			},
+			{
+				"name": "Cranberry Juice",
+				"coordinate": "X-2000",
+				"amount": "180"
+			}
+		]
+	},
+	{
+		"name": "Vodka Coke",
+		"image": "vodka_coke_small.png",
+		"description": "",
+		"ingredients": [
+			{
+				"name": "Vodka",
+				"coordinate": "X-4995",
+				"amount": "40"
+			},
+			{
+				"name": "Coca-Cola",
+				"coordinate": "X-1000",
+				"amount": "200"
+			}
+		]
+	},
+	{
+		"name": "Cuban Screw",
+		"image": "cuban_screw_small.png",
+		"description": "",
+		"ingredients": [
+			{
+				"name": "White Rum",
+				"coordinate": "X-4010",
+				"amount": "40"
+			},
+			{
+				"name": "Orange Juice",
+				"coordinate": "X-2520",
+				"amount": "200"
+			}
+		]
+	},
+	{
+		"name": "Sea Breeze",
+		"image": "sea_breeze_small.png",
+		"description": "",
+		"ingredients": [
+			{
+				"name": "Vodka",
+				"coordinate": "X-4995",
+				"amount": "40"
+			},
+			{
+				"name": "Cranberry Juice",
+				"coordinate": "X-2000",
+				"amount": "160"
+			},
+			{
+				"name": "Grapefruit Juice",
+				"coordinate": "X-1490",
+				"amount": "40"
+			}
+		]
+	},
+	{
+		"name": "Greyhound",
+		"image": "greyhound_small.png",
+		"description": "",
+		"ingredients": [
+			{
+				"name": "Vodka",
+				"coordinate": "X-4995",
+				"amount": "40"
+			},
+			{
+				"name": "Grapefruit Juice",
+				"coordinate": "X-1490",
+				"amount": "200"
+			}
+		]
+	}
+]

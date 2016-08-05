@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Barbot</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ion-list>
+		<ion-item>
+			Status
+			<item-note item-right *ngIf="status">
+				{{status.statusText}}
+			</item-note>
+		</ion-item>
+		<!-- <button ion-item (click)="goToIngredients()">Ingredients</button> -->
+	</ion-list>
+	<div style="padding: 0 16px;">
+		<button block (click)="handleButtonClick()" *ngIf="status" [disabled]="buttonDisabled">{{status.buttonText}}</button>
+	</div>
+</ion-content>

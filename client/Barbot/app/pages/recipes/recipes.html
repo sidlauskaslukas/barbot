@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Coctails</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ion-list>
+	  <button ion-item (click)="serve(recipe)" *ngFor="let recipe of recipes" class="recipe-item">
+	    <ion-thumbnail item-left>
+	      <img src="images/coctails/{{recipe.image}}">
+	    </ion-thumbnail>
+	    <h2>{{recipe.name}}</h2>
+	    <p>{{recipe.description}}</p>
+	  </button>
+	</ion-list>
+
+	<!-- <ion-input type="text" [(ngModel)]="command"></ion-input>
+	<button light (click)="send(command)">Send</button> -->
+
+</ion-content>
