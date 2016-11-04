@@ -7,12 +7,20 @@
 			{
 				"name": "Vodka",
 				"coordinate": "X-4995",
-				"amount": "40"
+				"amount": "40",
+				"durations": {
+					"hold": "2400",
+					"wait": "3000"
+				}
 			},
 			{
 				"name": "Orange Juice",
 				"coordinate": "X-2520",
-				"amount": "200"
+				"amount": "200",
+				"durations": {
+					"hold": "2400",
+					"wait": "3000"
+				}
 			}
 		]
 	},
@@ -24,12 +32,20 @@
 			{
 				"name": "White Rum",
 				"coordinate": "X-4010",
-				"amount": "40"
+				"amount": "40",
+				"durations": {
+					"hold": "2400",
+					"wait": "3000"
+				}
 			},
 			{
 				"name": "Coca-Cola",
 				"coordinate": "X-1000",
-				"amount": "200"
+				"amount": "200",
+				"durations": {
+					"hold": "2400",
+					"wait": "3000"
+				}
 			}
 		]
 	},
@@ -41,17 +57,29 @@
 			{
 				"name": "White Rum",
 				"coordinate": "X-4010",
-				"amount": "40"
+				"amount": "40",
+				"durations": {
+					"hold": "2400",
+					"wait": "3000"
+				}
 			},
 			{
 				"name": "Orange Juice",
 				"coordinate": "X-2520",
-				"amount": "180"
+				"amount": "180",
+				"durations": {
+					"hold": "2400",
+					"wait": "3000"
+				}
 			},
 			{
 				"name": "Grenadine",
 				"coordinate": "X-3000",
-				"amount": "20"
+				"amount": "20",
+				"durations": {
+					"hold": "7000",
+					"wait": "4000"
+				}
 			}
 		]
 	},
@@ -63,27 +91,47 @@
 			{
 				"name": "Vodka",
 				"coordinate": "X-4995",
-				"amount": "40"
+				"amount": "40",
+				"durations": {
+					"hold": "2400",
+					"wait": "3000"
+				}
 			},
 			{
 				"name": "Peach Liqueur",
 				"coordinate": "X-3500",
-				"amount": "20"
+				"amount": "20",
+				"durations": {
+					"hold": "3000",
+					"wait": "3000"
+				}
 			},
 			{
 				"name": "Orange Juice",
 				"coordinate": "X-2520",
-				"amount": "80"
+				"amount": "80",
+				"durations": {
+					"hold": "2400",
+					"wait": "3000"
+				}
 			},
 			{
 				"name": "Cranberry Juice",
 				"coordinate": "X-2000",
-				"amount": "80"
+				"amount": "80",
+				"durations": {
+					"hold": "2400",
+					"wait": "3000"
+				}
 			},
 			{
 				"name": "Grenadine",
 				"coordinate": "X-3000",
-				"amount": "20"
+				"amount": "20",
+				"durations": {
+					"hold": "7000",
+					"wait": "4000"
+				}
 			}
 		]
 	},
@@ -95,12 +143,20 @@
 			{
 				"name": "Whiskey",
 				"coordinate": "X-4500",
-				"amount": "40"
+				"amount": "40",
+				"durations": {
+					"hold": "2400",
+					"wait": "3000"
+				}
 			},
 			{
 				"name": "Coca-Cola",
 				"coordinate": "X-1000",
-				"amount": "200"
+				"amount": "200",
+				"durations": {
+					"hold": "2400",
+					"wait": "3000"
+				}
 			}
 		]
 	},
@@ -112,12 +168,20 @@
 			{
 				"name": "Vodka",
 				"coordinate": "X-4995",
-				"amount": "40"
+				"amount": "40",
+				"durations": {
+					"hold": "2400",
+					"wait": "3000"
+				}
 			},
 			{
 				"name": "Cranberry Juice",
 				"coordinate": "X-2000",
-				"amount": "200"
+				"amount": "200",
+				"durations": {
+					"hold": "2400",
+					"wait": "3000"
+				}
 			}
 		]
 	},
@@ -129,17 +193,29 @@
 			{
 				"name": "Vodka",
 				"coordinate": "X-4995",
-				"amount": "40"
+				"amount": "40",
+				"durations": {
+					"hold": "2400",
+					"wait": "3000"
+				}
 			},
 			{
 				"name": "Peach Liqueur",
 				"coordinate": "X-3500",
-				"amount": "20"
+				"amount": "20",
+				"durations": {
+					"hold": "2400",
+					"wait": "3000"
+				}
 			},
 			{
 				"name": "Cranberry Juice",
 				"coordinate": "X-2000",
-				"amount": "160"
+				"amount": "160",
+				"durations": {
+					"hold": "2400",
+					"wait": "3000"
+				}
 			}
 		]
 	},
@@ -151,17 +227,29 @@
 			{
 				"name": "Whiskey",
 				"coordinate": "X-4500",
-				"amount": "40"
+				"amount": "40",
+				"durations": {
+					"hold": "2400",
+					"wait": "3000"
+				}
 			},
 			{
 				"name": "Peach Liqueur",
 				"coordinate": "X-3500",
-				"amount": "20"
+				"amount": "20",
+				"durations": {
+					"hold": "2400",
+					"wait": "3000"
+				}
 			},
 			{
 				"name": "Cranberry Juice",
 				"coordinate": "X-2000",
-				"amount": "180"
+				"amount": "180",
+				"durations": {
+					"hold": "2400",
+					"wait": "3000"
+				}
 			}
 		]
 	},
@@ -173,12 +261,20 @@
 			{
 				"name": "Vodka",
 				"coordinate": "X-4995",
-				"amount": "40"
+				"amount": "40",
+				"durations": {
+					"hold": "2400",
+					"wait": "3000"
+				}
 			},
 			{
 				"name": "Coca-Cola",
 				"coordinate": "X-1000",
-				"amount": "200"
+				"amount": "200",
+				"durations": {
+					"hold": "2400",
+					"wait": "3000"
+				}
 			}
 		]
 	},
@@ -190,12 +286,20 @@
 			{
 				"name": "White Rum",
 				"coordinate": "X-4010",
-				"amount": "40"
+				"amount": "40",
+				"durations": {
+					"hold": "2400",
+					"wait": "3000"
+				}
 			},
 			{
 				"name": "Orange Juice",
 				"coordinate": "X-2520",
-				"amount": "200"
+				"amount": "200",
+				"durations": {
+					"hold": "2400",
+					"wait": "3000"
+				}
 			}
 		]
 	},
@@ -207,17 +311,29 @@
 			{
 				"name": "Vodka",
 				"coordinate": "X-4995",
-				"amount": "40"
+				"amount": "40",
+				"durations": {
+					"hold": "2400",
+					"wait": "3000"
+				}
 			},
 			{
 				"name": "Cranberry Juice",
 				"coordinate": "X-2000",
-				"amount": "160"
+				"amount": "160",
+				"durations": {
+					"hold": "2400",
+					"wait": "3000"
+				}
 			},
 			{
 				"name": "Grapefruit Juice",
 				"coordinate": "X-1490",
-				"amount": "40"
+				"amount": "40",
+				"durations": {
+					"hold": "2400",
+					"wait": "3000"
+				}
 			}
 		]
 	},
@@ -229,12 +345,20 @@
 			{
 				"name": "Vodka",
 				"coordinate": "X-4995",
-				"amount": "40"
+				"amount": "40",
+				"durations": {
+					"hold": "2500",
+					"wait": "3000"
+				}
 			},
 			{
 				"name": "Grapefruit Juice",
 				"coordinate": "X-1490",
-				"amount": "200"
+				"amount": "200",
+				"durations": {
+					"hold": "2500",
+					"wait": "3000"
+				}
 			}
 		]
 	}

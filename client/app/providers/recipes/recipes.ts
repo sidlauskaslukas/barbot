@@ -39,8 +39,9 @@ export class RecipesData {
 
     recipe.ingredients.forEach(ingredient => {
       let amount = ingredient.amount / 20;
+      let durations = ingredient.durations;
       command.push(ingredient.coordinate);
-      command.push('F'+amount);
+      command.push('F' + amount + ' H' + durations.hold + ' W' + durations.wait);
       description.push(ingredient.name);
     });
     
