@@ -55,24 +55,41 @@ export class RecipesData {
     recipe.description = description.join(', ');
   }
 
-  getAll() {
+  getAll(excludeIngredients = []) {
     return this.load().then(data => {
+
+      data.forEach(recipe => {
+        this.filterRecipe(recipe, excludeIngredients);
+      });
+
       return data;
     });
   }
 
-  // getIngredients() {
-  //   return this.load().then(data => {
-  //     let ingredients = [];
-  //     data.forEach(recipe => {
-  //       recipe.ingredients.forEach(ingredient => {
-  //         if(ingredients.indexOf(ingredient.name) === -1) {
-  //           ingredients.push(ingredient.name);
-  //         }
-  //       });
-  //     });
-  //     return ingredients;
-  //   });
-  // }
+  filterRecipe(recipe, excludeIngredients) {
+    let matchesIngredients = false;
+
+    recipe.ingredients.forEach(ingredient => {
+      if(excludeIngredients.indexOf(ingredient.name) > -1) {
+        matchesIngredients = true;
+      }
+    });
+
+    recipe.hide = matchesIngredients;
+  }
+
+  getIngredients() {
+    return this.load().then(data => {
+      let ingredients = [];
+      data.forEach(recipe => {
+        recipe.ingredients.forEach(ingredient => {
+          if(ingredients.indexOf(ingredient.name) === -1) {
+            ingredients.push(ingredient.name);
+          }
+        });
+      });
+      return ingredients;
+    });
+  }
 
 }

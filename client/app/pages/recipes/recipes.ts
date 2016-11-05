@@ -1,20 +1,24 @@
 import {Component} from '@angular/core';
-import {NavController} from 'ionic-angular';
+import {NavController, Modal} from 'ionic-angular';
 import {Dialogs, BluetoothSerial, Splashscreen} from 'ionic-native';
 import {RecipesData} from '../../providers/recipes/recipes';
+import {RecipesFilterPage} from '../recipes-filter/recipes-filter';
 
 @Component({
   templateUrl: 'build/pages/recipes/recipes.html',
 })
 export class RecipesPage {
 
-	recipes = [];
+  recipes = [];
   command = '';
+  excludeIngredients = [];
 
-  constructor(private nav: NavController, 
-              private recipesData: RecipesData
+  constructor(
+    private nav: NavController, 
+    private recipesData: RecipesData
   ) {
-  	recipesData.load();
+    this.nav = nav;
+    recipesData.load();
   }
 
   ngAfterViewInit() {
@@ -22,9 +26,21 @@ export class RecipesPage {
   }
 
   updateRecipes() {
-  	this.recipesData.getAll().then(data => {
+  	this.recipesData.getAll(this.excludeIngredients).then(data => {
   		this.recipes = data;
   	});
+  }
+
+  presentFilter() {
+    let modal = Modal.create(RecipesFilterPage, this.excludeIngredients);
+    this.nav.present(modal);
+
+    modal.onDismiss((data: any[]) => {
+      if(data) {
+        this.excludeIngredients = data;
+        this.updateRecipes();
+      }
+    });
   }
 
   serve(recipe) {
