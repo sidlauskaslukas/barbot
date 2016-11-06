@@ -9,17 +9,17 @@
 				"coordinate": "X-4995",
 				"amount": "40",
 				"durations": {
-					"hold": "2400",
+					"hold": "2500",
 					"wait": "3000"
 				}
 			},
 			{
 				"name": "Orange Juice",
-				"coordinate": "X-2520",
+				"coordinate": "X-2510",
 				"amount": "200",
 				"durations": {
 					"hold": "2400",
-					"wait": "3000"
+					"wait": "2500"
 				}
 			}
 		]
@@ -44,7 +44,7 @@
 				"amount": "200",
 				"durations": {
 					"hold": "2400",
-					"wait": "3000"
+					"wait": "2700"
 				}
 			}
 		]
@@ -65,16 +65,16 @@
 			},
 			{
 				"name": "Orange Juice",
-				"coordinate": "X-2520",
+				"coordinate": "X-2510",
 				"amount": "180",
 				"durations": {
 					"hold": "2400",
-					"wait": "3000"
+					"wait": "2500"
 				}
 			},
 			{
 				"name": "Grenadine",
-				"coordinate": "X-3000",
+				"coordinate": "X-2995",
 				"amount": "20",
 				"durations": {
 					"hold": "7000",
@@ -93,7 +93,7 @@
 				"coordinate": "X-4995",
 				"amount": "40",
 				"durations": {
-					"hold": "2400",
+					"hold": "2500",
 					"wait": "3000"
 				}
 			},
@@ -108,25 +108,25 @@
 			},
 			{
 				"name": "Orange Juice",
-				"coordinate": "X-2520",
+				"coordinate": "X-2510",
 				"amount": "80",
 				"durations": {
 					"hold": "2400",
-					"wait": "3000"
+					"wait": "2500"
 				}
 			},
 			{
 				"name": "Cranberry Juice",
-				"coordinate": "X-2000",
+				"coordinate": "X-1990",
 				"amount": "80",
 				"durations": {
-					"hold": "2400",
-					"wait": "3000"
+					"hold": "2300",
+					"wait": "2300"
 				}
 			},
 			{
 				"name": "Grenadine",
-				"coordinate": "X-3000",
+				"coordinate": "X-2995",
 				"amount": "20",
 				"durations": {
 					"hold": "7000",
@@ -142,11 +142,11 @@
 		"ingredients": [
 			{
 				"name": "Whiskey",
-				"coordinate": "X-4500",
+				"coordinate": "X-4495",
 				"amount": "40",
 				"durations": {
 					"hold": "2400",
-					"wait": "3000"
+					"wait": "2400"
 				}
 			},
 			{
@@ -155,7 +155,7 @@
 				"amount": "200",
 				"durations": {
 					"hold": "2400",
-					"wait": "3000"
+					"wait": "2700"
 				}
 			}
 		]
@@ -170,17 +170,17 @@
 				"coordinate": "X-4995",
 				"amount": "40",
 				"durations": {
-					"hold": "2400",
+					"hold": "2500",
 					"wait": "3000"
 				}
 			},
 			{
 				"name": "Cranberry Juice",
-				"coordinate": "X-2000",
+				"coordinate": "X-1990",
 				"amount": "200",
 				"durations": {
-					"hold": "2400",
-					"wait": "3000"
+					"hold": "2300",
+					"wait": "2300"
 				}
 			}
 		]
@@ -195,7 +195,7 @@
 				"coordinate": "X-4995",
 				"amount": "40",
 				"durations": {
-					"hold": "2400",
+					"hold": "2500",
 					"wait": "3000"
 				}
 			},
@@ -210,11 +210,11 @@
 			},
 			{
 				"name": "Cranberry Juice",
-				"coordinate": "X-2000",
+				"coordinate": "X-1990",
 				"amount": "160",
 				"durations": {
-					"hold": "2400",
-					"wait": "3000"
+					"hold": "2300",
+					"wait": "2300"
 				}
 			}
 		]
@@ -226,11 +226,11 @@
 		"ingredients": [
 			{
 				"name": "Whiskey",
-				"coordinate": "X-4500",
+				"coordinate": "X-4495",
 				"amount": "40",
 				"durations": {
 					"hold": "2400",
-					"wait": "3000"
+					"wait": "2400"
 				}
 			},
 			{
@@ -244,11 +244,11 @@
 			},
 			{
 				"name": "Cranberry Juice",
-				"coordinate": "X-2000",
+				"coordinate": "X-1990",
 				"amount": "180",
 				"durations": {
-					"hold": "2400",
-					"wait": "3000"
+					"hold": "2300",
+					"wait": "2300"
 				}
 			}
 		]
@@ -263,7 +263,7 @@
 				"coordinate": "X-4995",
 				"amount": "40",
 				"durations": {
-					"hold": "2400",
+					"hold": "2500",
 					"wait": "3000"
 				}
 			},
@@ -273,7 +273,7 @@
 				"amount": "200",
 				"durations": {
 					"hold": "2400",
-					"wait": "3000"
+					"wait": "2700"
 				}
 			}
 		]
@@ -294,11 +294,11 @@
 			},
 			{
 				"name": "Orange Juice",
-				"coordinate": "X-2520",
+				"coordinate": "X-2510",
 				"amount": "200",
 				"durations": {
 					"hold": "2400",
-					"wait": "3000"
+					"wait": "2500"
 				}
 			}
 		]
@@ -313,17 +313,17 @@
 				"coordinate": "X-4995",
 				"amount": "40",
 				"durations": {
-					"hold": "2400",
+					"hold": "2500",
 					"wait": "3000"
 				}
 			},
 			{
 				"name": "Cranberry Juice",
-				"coordinate": "X-2000",
+				"coordinate": "X-1990",
 				"amount": "160",
 				"durations": {
-					"hold": "2400",
-					"wait": "3000"
+					"hold": "2300",
+					"wait": "2300"
 				}
 			},
 			{
@@ -331,8 +331,8 @@
 				"coordinate": "X-1490",
 				"amount": "40",
 				"durations": {
-					"hold": "2400",
-					"wait": "3000"
+					"hold": "2600",
+					"wait": "2500"
 				}
 			}
 		]
@@ -356,8 +356,8 @@
 				"coordinate": "X-1490",
 				"amount": "200",
 				"durations": {
-					"hold": "2500",
-					"wait": "3000"
+					"hold": "2600",
+					"wait": "2500"
 				}
 			}
 		]
