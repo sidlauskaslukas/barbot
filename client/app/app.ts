@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {Events, Platform, ionicBootstrap} from 'ionic-angular';
-import {StatusBar, Dialogs, Toast, SpinnerDialog, Splashscreen, BluetoothSerial} from 'ionic-native';
+import {StatusBar, Dialogs, Toast, Splashscreen, BluetoothSerial} from 'ionic-native';
 import {TabsPage} from './pages/tabs/tabs';
 import {RecipesData} from './providers/recipes/recipes';
 import {Barbot} from './providers/barbot/barbot';
