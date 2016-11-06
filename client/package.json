@@ -33,6 +33,9 @@
     "cordova-plugin-whitelist",
     "cordova-plugin-splashscreen",
     "cordova-plugin-statusbar",
+    "cordova-plugin-bluetooth-serial",
+    "cordova-plugin-dialogs",
+    "cordova-plugin-x-toast",
     "ionic-plugin-keyboard"
   ],
   "cordovaPlatforms": [
@@ -43,6 +46,6 @@
       "locator": "ios"
     }
   ],
-  "name": "barbot",
+  "name": "Barbot",
   "description": "Barbot: An Ionic project"
 }
