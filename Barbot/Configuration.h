@@ -8,6 +8,7 @@
 #define X_DIR_PIN 4 // Stepper driver dir pin
 #define X_ENDSTOP_PIN 5 // Endstop pin
 
+// Stepper motor
 #define X_HOME_SPEED 150
 #define X_SPEED 700
 #define X_MAX_SPEED 1500
@@ -20,5 +21,7 @@
 #define SERVO_RAISE_SPEED 30
 #define SERVO_RELEASE_SPEED 0
 
-#endif
+// Other
+#define TOTAL_ACTIONS 30 // Total number of actions
 
+#endif

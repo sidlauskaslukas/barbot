@@ -2,10 +2,8 @@
 #include "PololuMaestro.h"
 #include "Configuration.h"
 
-const int numberOfIngredients = 30; // Number of ingredients
-
 String serialBuffer = "";
-String ingredients[numberOfIngredients];
+String actions[TOTAL_ACTIONS];
 
 int counter = 0;
 int lastIndex = 0;
@@ -55,28 +53,26 @@ void loop() {
     char ch = Serial2.read();
     serialBuffer += ch;
     if (ch == '\n') {
-      
       for(int i=0; i<serialBuffer.length(); i++) {
         if(serialBuffer.substring(i, i+1) == ",") {
-          ingredients[counter] = serialBuffer.substring(lastIndex, i);
+          actions[counter] = serialBuffer.substring(lastIndex, i);
           lastIndex = i + 1;
           counter++;
         }
 
         if(i == serialBuffer.length() - 1) {
-          ingredients[counter] = serialBuffer.substring(lastIndex, i);
+          actions[counter] = serialBuffer.substring(lastIndex, i);
         }
       }
 
-      for(int z=0; z<numberOfIngredients; z++) {
-        Serial.println(ingredients[z]);
-        if(ingredients[z] != "0") {
-          parseInput(ingredients[z]);
+      for(int z=0; z<TOTAL_ACTIONS; z++) {
+        if(actions[z] != "0") {
+          parseInput(actions[z]);
         }
       }
 
-      for(int y=0; y<numberOfIngredients; y++) {
-        ingredients[y] = "0";
+      for(int y=0; y<TOTAL_ACTIONS; y++) {
+        actions[y] = "0";
       }
       
       serialBuffer = "";
