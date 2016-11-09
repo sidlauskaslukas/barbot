@@ -1,60 +1,50 @@
 #include "AccelStepper.h"
 #include "PololuMaestro.h"
+#include "Configuration.h"
 
-#define maestroSerial SERIAL_PORT_HARDWARE_OPEN
-
-//const byte enablePin = 6; // Stepper driver enable pin
-const byte stepPin = 3; // Stepper driver step pin
-const byte dirPin = 4; // Stepper driver dir pin
-const byte endStopPin = 5; // Endstop pin
-
-const int maxPosition = -4995; // TODO: invert
 const int numberOfIngredients = 30; // Number of ingredients
 
 String serialBuffer = "";
-
 String ingredients[numberOfIngredients];
 
 int counter = 0;
 int lastIndex = 0;
 
-AccelStepper stepper(1, stepPin, dirPin); // Define a stepper and the pins it will use
+AccelStepper stepper(1, X_STEP_PIN, X_DIR_PIN); // Define a stepper and the pins it will use
 MicroMaestro maestro(maestroSerial); // Define a servo controller
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(9600); // Serial port for debugging
   maestroSerial.begin(9600); // Servo controller
   Serial2.begin(9600); // Bluetooth module
-  stepper.setMaxSpeed(1500);
-  //stepper.setEnablePin(enablePin); // Doesn't work for unknown reason
-  //stepper.enableOutputs();
-  pinMode(endStopPin, INPUT_PULLUP); // Initialize endstop pin with the internal pull-up resistor enabled
+  stepper.setMaxSpeed(X_MAX_SPEED);
+  pinMode(X_ENDSTOP_PIN, INPUT_PULLUP); // Initialize endstop pin with the internal pull-up resistor enabled
   homeXAxis(); // Return the machine's home position for the X axis
 }
 
 void homeXAxis() {
-  int endStopState = digitalRead(endStopPin);
+  int endStopState = digitalRead(X_ENDSTOP_PIN);
   
   while (endStopState == HIGH) {
     stepper.moveTo(100);
-    stepper.setSpeed(700);
+    stepper.setSpeed(X_SPEED);
     stepper.runSpeed();
-    endStopState = digitalRead(endStopPin);
+    endStopState = digitalRead(X_ENDSTOP_PIN);
   }
 
   stepper.moveTo(stepper.currentPosition() - 50);
   while (stepper.distanceToGo() != 0) {
-    stepper.setSpeed(-150);
+    stepper.setSpeed(X_HOME_SPEED * -1);
     stepper.runSpeed();
   }
 
-  endStopState = digitalRead(endStopPin);
+  endStopState = digitalRead(X_ENDSTOP_PIN);
 
   while (endStopState == HIGH) {
     stepper.moveTo(1000);
-    stepper.setSpeed(150);
+    stepper.setSpeed(X_HOME_SPEED);
     stepper.runSpeed();
-    endStopState = digitalRead(endStopPin);
+    endStopState = digitalRead(X_ENDSTOP_PIN);
   }
   stepper.setCurrentPosition(0);
 }
@@ -65,8 +55,6 @@ void loop() {
     char ch = Serial2.read();
     serialBuffer += ch;
     if (ch == '\n') {
-      
-      //Serial.print(serialBuffer);
       
       for(int i=0; i<serialBuffer.length(); i++) {
         if(serialBuffer.substring(i, i+1) == ",") {
@@ -122,8 +110,8 @@ void moveXTo(String input) {
   Serial.print("X goes to: ");
   Serial.println(pos);
 
-  if(pos < 0 && pos >= maxPosition) {
-    stepper.setAcceleration(3000);
+  if(pos < 0 && pos >= X_MAX_POS) {
+    stepper.setAcceleration(X_ACCELERATION);
     stepper.moveTo(pos);
       if(pos < stepper.currentPosition()) {
         stepper.setSpeed(-100);
@@ -162,11 +150,11 @@ void pour(String input) {
 
   if(holdDuration > 0 && waitDuration > 0) {
     for(int i=0; i<times; i++) {
-      maestro.setSpeed(0, 30);
-      maestro.setTarget(0, 4120);
+      maestro.setSpeed(0, SERVO_RAISE_SPEED);
+      maestro.setTarget(0, SERVO_MAX_POS);
       delay(holdDuration);
-      maestro.setSpeed(0, 0);
-      maestro.setTarget(0, 6000);
+      maestro.setSpeed(0, SERVO_RELEASE_SPEED);
+      maestro.setTarget(0, SERVO_MIN_POS);
       if(times - 1 > count) {
         delay(waitDuration);
       } else {
