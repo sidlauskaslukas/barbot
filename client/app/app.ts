@@ -72,6 +72,8 @@ export class MyApp {
         );
       },
       reason => {
+        this.events.publish('barbot:disconnected');
+        if(reason === 'cordova_not_available') return;
         console.log('Bluetooth is not enabled. Ask user for permission again.');
         this.connect();
       }
