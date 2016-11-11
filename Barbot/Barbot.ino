@@ -8,16 +8,16 @@ String actions[TOTAL_ACTIONS];
 int counter = 0;
 int lastIndex = 0;
 
-AccelStepper stepper(1, X_STEP_PIN, X_DIR_PIN); // Define a stepper and the pins it will use
+AccelStepper stepper(X_INTERFACE_TYPE, X_STEP_PIN, X_DIR_PIN); // Define a stepper and the pins it will use
 MicroMaestro maestro(maestroSerial); // Define a servo controller
 
 void setup() {
   Serial.begin(9600); // Serial port for debugging
   maestroSerial.begin(9600); // Servo controller
   Serial2.begin(9600); // Bluetooth module
-  stepper.setMaxSpeed(X_MAX_SPEED);
+  stepper.setMaxSpeed(X_MAX_SPEED); // Sets the maximum speed the X axis accelerate up to
   pinMode(X_ENDSTOP_PIN, INPUT_PULLUP); // Initialize endstop pin with the internal pull-up resistor enabled
-  homeXAxis(); // Return the machine's home position for the X axis
+  homeXAxis(); // Return the X axis to it's home position at the startup
 }
 
 void homeXAxis() {
@@ -25,22 +25,22 @@ void homeXAxis() {
   
   while (endStopState == HIGH) {
     stepper.moveTo(100);
-    stepper.setSpeed(X_SPEED);
+    stepper.setSpeed(X_HOME_SPEED);
     stepper.runSpeed();
     endStopState = digitalRead(X_ENDSTOP_PIN);
   }
 
   stepper.moveTo(stepper.currentPosition() - 50);
   while (stepper.distanceToGo() != 0) {
-    stepper.setSpeed(X_HOME_SPEED * -1);
+    stepper.setSpeed(X_PARK_SPEED * -1);
     stepper.runSpeed();
   }
 
   endStopState = digitalRead(X_ENDSTOP_PIN);
 
   while (endStopState == HIGH) {
-    stepper.moveTo(1000);
-    stepper.setSpeed(X_HOME_SPEED);
+    stepper.moveTo(100);
+    stepper.setSpeed(X_PARK_SPEED);
     stepper.runSpeed();
     endStopState = digitalRead(X_ENDSTOP_PIN);
   }
@@ -48,7 +48,6 @@ void homeXAxis() {
 }
 
 void loop() {
-
   while(Serial2.available() > 0) {
     char ch = Serial2.read();
     serialBuffer += ch;
@@ -80,7 +79,6 @@ void loop() {
       lastIndex = 0;      
     }
   }
-  
 }
 
 void parseInput(String input) {
@@ -123,10 +121,10 @@ void moveXTo(String input) {
 }
 
 void pour(String input) {
-  int count = 0; // pour counter
-  int times = 0; // times to pour
-  int holdDuration = 0; // time duration to hold dispenser in open position
-  int waitDuration = 0; // time duration to wait till next pour
+  int count = 0; // Pour counter
+  int times = 0; // Times to pour
+  int holdDuration = 0; // Time duration to hold dispenser in open position
+  int waitDuration = 0; // Time duration to wait till next pour
   
   for(int z=0; z<input.length(); z++) {
     byte parameter = input.substring(z, z+1).charAt(0);
@@ -154,7 +152,7 @@ void pour(String input) {
       if(times - 1 > count) {
         delay(waitDuration);
       } else {
-        delay(600);
+        delay(DELAY_BETWEEN_INGREDIENTS);
       }
       count++;
     }
