@@ -4,6 +4,7 @@ import {StatusBar, Dialogs, Toast, Splashscreen, BluetoothSerial} from 'ionic-na
 import {TabsPage} from './pages/tabs/tabs';
 import {RecipesData} from './providers/recipes/recipes';
 import {Barbot} from './providers/barbot/barbot';
+import {BARBOT} from './config';
 
 @Component({
   template: '<ion-nav [root]="rootPage"></ion-nav>',
@@ -44,7 +45,7 @@ export class MyApp {
         Toast.show('Connecting to Barbot...', '20000', 'bottom').subscribe(toast => {});
         console.log('Bluetooth is enabled. Connecting to Barbot.');
         // Connect to Barbot
-        this.connection = BluetoothSerial.connect('20:15:12:18:65:92').subscribe(
+        this.connection = BluetoothSerial.connect(BARBOT.MAC_ADDRESS).subscribe(
           status => {
             this.events.publish('barbot:connected');
             Toast.hide().then(
