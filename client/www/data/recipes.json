@@ -34,8 +34,8 @@
 				"coordinate": "X-4010",
 				"amount": "40",
 				"durations": {
-					"hold": "2400",
-					"wait": "3000"
+					"hold": "2500",
+					"wait": "2400"
 				}
 			},
 			{
@@ -43,8 +43,8 @@
 				"coordinate": "X-1000",
 				"amount": "200",
 				"durations": {
-					"hold": "2400",
-					"wait": "2700"
+					"hold": "2500",
+					"wait": "2800"
 				}
 			}
 		]
@@ -59,8 +59,8 @@
 				"coordinate": "X-4010",
 				"amount": "40",
 				"durations": {
-					"hold": "2400",
-					"wait": "3000"
+					"hold": "2500",
+					"wait": "2400"
 				}
 			},
 			{
@@ -102,8 +102,8 @@
 				"coordinate": "X-3500",
 				"amount": "20",
 				"durations": {
-					"hold": "3000",
-					"wait": "3000"
+					"hold": "2500",
+					"wait": "2400"
 				}
 			},
 			{
@@ -154,8 +154,8 @@
 				"coordinate": "X-1000",
 				"amount": "200",
 				"durations": {
-					"hold": "2400",
-					"wait": "2700"
+					"hold": "2500",
+					"wait": "2800"
 				}
 			}
 		]
@@ -204,8 +204,8 @@
 				"coordinate": "X-3500",
 				"amount": "20",
 				"durations": {
-					"hold": "2400",
-					"wait": "3000"
+					"hold": "2500",
+					"wait": "2400"
 				}
 			},
 			{
@@ -238,8 +238,8 @@
 				"coordinate": "X-3500",
 				"amount": "20",
 				"durations": {
-					"hold": "2400",
-					"wait": "3000"
+					"hold": "2500",
+					"wait": "2400"
 				}
 			},
 			{
@@ -272,8 +272,8 @@
 				"coordinate": "X-1000",
 				"amount": "200",
 				"durations": {
-					"hold": "2400",
-					"wait": "2700"
+					"hold": "2500",
+					"wait": "2800"
 				}
 			}
 		]
@@ -288,8 +288,8 @@
 				"coordinate": "X-4010",
 				"amount": "40",
 				"durations": {
-					"hold": "2400",
-					"wait": "3000"
+					"hold": "2500",
+					"wait": "2400"
 				}
 			},
 			{
