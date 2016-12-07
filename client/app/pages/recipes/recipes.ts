@@ -43,6 +43,12 @@ export class RecipesPage {
     });
   }
 
+  lucky() {
+    let filteredRecipes = this.recipes.filter(r => { return !r.hide});
+    let recipe = filteredRecipes[Math.floor(Math.random() * filteredRecipes.length)];
+    this.serve(recipe);
+  }
+
   serve(recipe) {
   	Dialogs.confirm('Please confirm your choice: ' + recipe.name, 'Confirm your choice', ['Confirm', 'Cancel']).then(
   		selection => {
