@@ -1,0 +1,449 @@
+[
+	{
+		"name": "Screwdriver",
+		"image": "screw_driver_small.png",
+		"description": "",
+		"ingredients": [
+			{
+				"name": "Vodka",
+				"coordinate": "X-4995",
+				"amount": "40",
+				"durations": {
+					"hold": "2500",
+					"wait": "3000"
+				}
+			},
+			{
+				"name": "Orange Juice",
+				"coordinate": "X-2510",
+				"amount": "100",
+				"durations": {
+					"hold": "2400",
+					"wait": "2500"
+				}
+			}
+		]
+	},
+	{
+		"name": "Cuba Libre",
+		"image": "cuba_libre_small.png",
+		"description": "",
+		"ingredients": [
+			{
+				"name": "White Rum",
+				"coordinate": "X-4010",
+				"amount": "40",
+				"durations": {
+					"hold": "2500",
+					"wait": "2400"
+				}
+			},
+			{
+				"name": "Coca-Cola",
+				"coordinate": "X-1000",
+				"amount": "120",
+				"durations": {
+					"hold": "2500",
+					"wait": "2800"
+				}
+			}
+		]
+	},
+	{
+		"name": "Sex on the Beach",
+		"image": "sex_on_the_beach_small.png",
+		"description": "",
+		"ingredients": [
+			{
+				"name": "Vodka",
+				"coordinate": "X-4995",
+				"amount": "40",
+				"durations": {
+					"hold": "2500",
+					"wait": "3000"
+				}
+			},
+			{
+				"name": "Peach Liqueur",
+				"coordinate": "X-3500",
+				"amount": "20",
+				"durations": {
+					"hold": "2500",
+					"wait": "2400"
+				}
+			},
+			{
+				"name": "Orange Juice",
+				"coordinate": "X-2510",
+				"amount": "40",
+				"durations": {
+					"hold": "2400",
+					"wait": "2500"
+				}
+			},
+			{
+				"name": "Cranberry Juice",
+				"coordinate": "X-1990",
+				"amount": "40",
+				"durations": {
+					"hold": "2300",
+					"wait": "2300"
+				}
+			}
+		]
+	},
+	{
+		"name": "Whiskey Cola",
+		"image": "whiskey_cola_small.png",
+		"description": "",
+		"ingredients": [
+			{
+				"name": "Whiskey",
+				"coordinate": "X-4495",
+				"amount": "40",
+				"durations": {
+					"hold": "2400",
+					"wait": "2400"
+				}
+			},
+			{
+				"name": "Coca-Cola",
+				"coordinate": "X-1000",
+				"amount": "120",
+				"durations": {
+					"hold": "2500",
+					"wait": "2800"
+				}
+			}
+		]
+	},
+	{
+		"name": "Cape Codder",
+		"image": "cape_codder_small.png",
+		"description": "",
+		"ingredients": [
+			{
+				"name": "Vodka",
+				"coordinate": "X-4995",
+				"amount": "40",
+				"durations": {
+					"hold": "2500",
+					"wait": "3000"
+				}
+			},
+			{
+				"name": "Cranberry Juice",
+				"coordinate": "X-1990",
+				"amount": "120",
+				"durations": {
+					"hold": "2300",
+					"wait": "2300"
+				}
+			}
+		]
+	},
+	{
+		"name": "Woo Woo",
+		"image": "woo_woo_small.png",
+		"description": "",
+		"ingredients": [
+			{
+				"name": "Vodka",
+				"coordinate": "X-4995",
+				"amount": "40",
+				"durations": {
+					"hold": "2500",
+					"wait": "3000"
+				}
+			},
+			{
+				"name": "Peach Liqueur",
+				"coordinate": "X-3500",
+				"amount": "20",
+				"durations": {
+					"hold": "2500",
+					"wait": "2400"
+				}
+			},
+			{
+				"name": "Cranberry Juice",
+				"coordinate": "X-1990",
+				"amount": "80",
+				"durations": {
+					"hold": "2300",
+					"wait": "2300"
+				}
+			}
+		]
+	},
+	{
+		"name": "Wild Wild West",
+		"image": "wild_wild_west_small.png",
+		"description": "",
+		"ingredients": [
+			{
+				"name": "Whiskey",
+				"coordinate": "X-4495",
+				"amount": "40",
+				"durations": {
+					"hold": "2400",
+					"wait": "2400"
+				}
+			},
+			{
+				"name": "Peach Liqueur",
+				"coordinate": "X-3500",
+				"amount": "20",
+				"durations": {
+					"hold": "2500",
+					"wait": "2400"
+				}
+			},
+			{
+				"name": "Cranberry Juice",
+				"coordinate": "X-1990",
+				"amount": "100",
+				"durations": {
+					"hold": "2300",
+					"wait": "2300"
+				}
+			}
+		]
+	},
+	{
+		"name": "Vodka Coke",
+		"image": "vodka_coke_small.png",
+		"description": "",
+		"ingredients": [
+			{
+				"name": "Vodka",
+				"coordinate": "X-4995",
+				"amount": "40",
+				"durations": {
+					"hold": "2500",
+					"wait": "3000"
+				}
+			},
+			{
+				"name": "Coca-Cola",
+				"coordinate": "X-1000",
+				"amount": "120",
+				"durations": {
+					"hold": "2500",
+					"wait": "2800"
+				}
+			}
+		]
+	},
+	{
+		"name": "Cuban Screw",
+		"image": "cuban_screw_small.png",
+		"description": "",
+		"ingredients": [
+			{
+				"name": "White Rum",
+				"coordinate": "X-4010",
+				"amount": "40",
+				"durations": {
+					"hold": "2500",
+					"wait": "2400"
+				}
+			},
+			{
+				"name": "Orange Juice",
+				"coordinate": "X-2510",
+				"amount": "120",
+				"durations": {
+					"hold": "2400",
+					"wait": "2500"
+				}
+			}
+		]
+	},
+	{
+		"name": "Sea Breeze",
+		"image": "sea_breeze_small.png",
+		"description": "",
+		"ingredients": [
+			{
+				"name": "Vodka",
+				"coordinate": "X-4995",
+				"amount": "40",
+				"durations": {
+					"hold": "2500",
+					"wait": "3000"
+				}
+			},
+			{
+				"name": "Cranberry Juice",
+				"coordinate": "X-1990",
+				"amount": "100",
+				"durations": {
+					"hold": "2300",
+					"wait": "2300"
+				}
+			},
+			{
+				"name": "Grapefruit Juice",
+				"coordinate": "X-1490",
+				"amount": "20",
+				"durations": {
+					"hold": "2600",
+					"wait": "2500"
+				}
+			}
+		]
+	},
+	{
+		"name": "Greyhound",
+		"image": "greyhound_small.png",
+		"description": "",
+		"ingredients": [
+			{
+				"name": "Vodka",
+				"coordinate": "X-4995",
+				"amount": "40",
+				"durations": {
+					"hold": "2500",
+					"wait": "3000"
+				}
+			},
+			{
+				"name": "Grapefruit Juice",
+				"coordinate": "X-1490",
+				"amount": "120 ",
+				"durations": {
+					"hold": "2600",
+					"wait": "2500"
+				}
+			}
+		]
+	},
+	{
+		"name": "Jolly Rancher",
+		"image": "jolly_rancher_small.png",
+		"description": "",
+		"ingredients": [
+			{
+				"name": "Vodka",
+				"coordinate": "X-4995",
+				"amount": "40",
+				"durations": {
+					"hold": "2500",
+					"wait": "3000"
+				}
+			},
+			{
+				"name": "Melon Liqueur",
+				"coordinate": "X-2995",
+				"amount": "20",
+				"durations": {
+					"hold": "2500",
+					"wait": "2400"
+				}
+			},
+			{
+				"name": "Cranberry Juice",
+				"coordinate": "X-1990",
+				"amount": "100",
+				"durations": {
+					"hold": "2300",
+					"wait": "2300"
+				}
+			}
+		]
+	},
+	{
+		"name": "Melon Ball",
+		"image": "melon_ball_small.png",
+		"description": "",
+		"ingredients": [
+			{
+				"name": "Vodka",
+				"coordinate": "X-4995",
+				"amount": "40",
+				"durations": {
+					"hold": "2500",
+					"wait": "3000"
+				}
+			},
+			{
+				"name": "Melon Liqueur",
+				"coordinate": "X-2995",
+				"amount": "20",
+				"durations": {
+					"hold": "2500",
+					"wait": "2400"
+				}
+			},
+			{
+				"name": "Orange Juice",
+				"coordinate": "X-2510",
+				"amount": "100",
+				"durations": {
+					"hold": "2400",
+					"wait": "2500"
+				}
+			}
+		]
+	},
+	{
+		"name": "Fuzzy Navel",
+		"image": "fuzzy_navel_small.png",
+		"description": "",
+		"ingredients": [
+			{
+				"name": "Peach Liqueur",
+				"coordinate": "X-3500",
+				"amount": "40",
+				"durations": {
+					"hold": "2500",
+					"wait": "2400"
+				}
+			},
+			{
+				"name": "Orange Juice",
+				"coordinate": "X-2510",
+				"amount": "100",
+				"durations": {
+					"hold": "2400",
+					"wait": "2500"
+				}
+			}
+		]
+	},
+	{
+		"name": "Hairy Navel",
+		"image": "fuzzy_navel_small.png",
+		"description": "",
+		"ingredients": [
+			{
+				"name": "Peach Liqueur",
+				"coordinate": "X-3500",
+				"amount": "40",
+				"durations": {
+					"hold": "2500",
+					"wait": "2400"
+				}
+			},
+			{
+				"name": "Vodka",
+				"coordinate": "X-4995",
+				"amount": "20",
+				"durations": {
+					"hold": "2500",
+					"wait": "3000"
+				}
+			},
+			{
+				"name": "Orange Juice",
+				"coordinate": "X-2510",
+				"amount": "100",
+				"durations": {
+					"hold": "2400",
+					"wait": "2500"
+				}
+			}
+		]
+	}
+]
