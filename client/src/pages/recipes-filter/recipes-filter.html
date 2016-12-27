@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button (click)="cancel()">Cancel</button>
+    </ion-buttons>
+    <ion-title>Ingredients</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="applyFilters()">Done</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+      <ion-item *ngFor="let ingredient of ingredients">
+        <span item-left class="dot"></span>
+        <ion-label>{{ingredient.name}}</ion-label>
+        <ion-toggle [(ngModel)]="ingredient.isChecked" color="secondary"></ion-toggle>
+      </ion-item>
+    </ion-list>
+</ion-content>

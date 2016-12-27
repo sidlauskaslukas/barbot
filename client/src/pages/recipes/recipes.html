@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Cocktails</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="presentFilter()">
+        <ion-icon name="ios-options-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <button ion-item (click)="serve(recipe)" [hidden]="recipe.hide" *ngFor="let recipe of recipes" class="recipe-item">
+      <ion-thumbnail item-left>
+        <img src="assets/images/cocktails/{{recipe.image}}">
+      </ion-thumbnail>
+      <h2>{{recipe.name}}</h2>
+      <p>{{recipe.description}}</p>
+    </button>
+  </ion-list>
+
+  <!-- <ion-input type="text" [(ngModel)]="command"></ion-input>
+  <button light (click)="send(command)">Send</button> -->
+</ion-content>
