@@ -5,7 +5,6 @@ import { StatusBar, Dialogs, Toast, Splashscreen, BluetoothSerial } from 'ionic-
 import { TabsPage } from '../pages/tabs/tabs';
 import { BARBOT } from './barbot-config';
 
-
 @Component({
   templateUrl: 'app.html'
 })
@@ -29,6 +28,7 @@ export class MyApp {
     this.events.subscribe('barbot:connect', () => {
       this.connect();
     });
+
     this.events.subscribe('barbot:disconnect', () => {
       this.disconnect();
     });
@@ -82,4 +82,5 @@ export class MyApp {
     this.connection.unsubscribe();
     this.events.publish('barbot:disconnected');
   }
+
 }

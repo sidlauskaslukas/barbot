@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { Dialogs, BluetoothSerial, Splashscreen } from 'ionic-native';
-import { RecipesData } from '../../providers/recipes/recipes';
+import { RecipesData } from '../../providers/recipes-data';
 import { RecipesFilterPage } from '../recipes-filter/recipes-filter';
 
 @Component({

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ViewController } from 'ionic-angular';
-import { RecipesData } from '../../providers/recipes/recipes'
+import { RecipesData } from '../../providers/recipes-data';
 
 @Component({
   selector: 'page-recipes-filter',

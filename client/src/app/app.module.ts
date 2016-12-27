@@ -4,6 +4,7 @@ import { MyApp } from './app.component';
 import { BarbotPage } from '../pages/barbot/barbot';
 import { RecipesPage } from '../pages/recipes/recipes';
 import { TabsPage } from '../pages/tabs/tabs';
+import { RecipesData } from '../providers/recipes-data';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,9 @@ import { TabsPage } from '../pages/tabs/tabs';
     RecipesPage,
     TabsPage,
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    RecipesData
+  ]
 })
 export class AppModule {}
