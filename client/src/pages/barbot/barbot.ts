@@ -1,6 +1,6 @@
 import { Component, NgZone} from '@angular/core';
-import { Events, NavController, NavParams } from 'ionic-angular';
-import { Barbot } from '../../providers/barbot/barbot';
+import { Events, NavController } from 'ionic-angular';
+import { Barbot } from '../../providers/barbot';
 
 @Component({
   selector: 'page-barbot',

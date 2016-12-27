@@ -13,7 +13,7 @@
   <ion-list>
     <button ion-item (click)="serve(recipe)" [hidden]="recipe.hide" *ngFor="let recipe of recipes" class="recipe-item">
       <ion-thumbnail item-left>
-        <img src="images/coctails/{{recipe.image}}">
+        <img src="assets/images/cocktails/{{recipe.image}}">
       </ion-thumbnail>
       <h2>{{recipe.name}}</h2>
       <p>{{recipe.description}}</p>

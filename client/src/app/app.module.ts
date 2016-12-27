@@ -5,13 +5,14 @@ import { BarbotPage } from '../pages/barbot/barbot';
 import { RecipesPage } from '../pages/recipes/recipes';
 import { TabsPage } from '../pages/tabs/tabs';
 import { RecipesData } from '../providers/recipes-data';
+import { Barbot } from '../providers/barbot';
 
 @NgModule({
   declarations: [
     MyApp,
     BarbotPage,
     RecipesPage,
-    TabsPage,
+    TabsPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -21,11 +22,12 @@ import { RecipesData } from '../providers/recipes-data';
     MyApp,
     BarbotPage,
     RecipesPage,
-    TabsPage,
+    TabsPage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    RecipesData
+    RecipesData,
+    Barbot
   ]
 })
 export class AppModule {}
