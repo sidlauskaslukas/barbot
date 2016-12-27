@@ -5,7 +5,6 @@ import { StatusBar, Dialogs, Toast, Splashscreen, BluetoothSerial } from 'ionic-
 import { TabsPage } from '../pages/tabs/tabs';
 import { BARBOT } from './barbot-config';
 
-
 @Component({
   templateUrl: 'app.html'
 })
