@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { Dialogs, BluetoothSerial } from 'ionic-native';
+
 import { RecipesData } from '../../providers/recipes-data';
+import { SettingsPage } from '../settings/settings';
 import { RecipesFilterPage } from '../recipes-filter/recipes-filter';
 
 @Component({
@@ -32,6 +34,10 @@ export class RecipesPage {
     this.recipesData.getAll(this.excludeIngredients).then(data => {
       this.recipes = data;
     });
+  }
+
+  presentSettings() {
+    this.nav.push(SettingsPage);
   }
 
   presentFilter() {
