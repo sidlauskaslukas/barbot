@@ -1,7 +1,5 @@
 {
-  "name": "ionic-hello-world",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "name": "Barbot",
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
