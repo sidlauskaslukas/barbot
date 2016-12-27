@@ -36,7 +36,10 @@
     "cordova-plugin-statusbar",
     "cordova-plugin-device",
     "cordova-plugin-splashscreen",
-    "ionic-plugin-keyboard"
+    "ionic-plugin-keyboard",
+    "cordova-plugin-bluetooth-serial",
+    "cordova-plugin-dialogs",
+    "cordova-plugin-x-toast"
   ],
   "cordovaPlatforms": [
     "ios",

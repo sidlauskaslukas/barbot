@@ -1,0 +1,16 @@
+page-recipes {
+
+  .recipe-item {
+    ion-thumbnail {
+      min-width: 6rem;
+      img {
+        margin: auto;
+      }
+    }
+    ion-label {
+      white-space: normal;
+      text-overflow: clip;
+      overflow: visible;
+    }
+  }
+}
