@@ -1,9 +1,10 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+import { TabsPage } from '../pages/tabs/tabs';
 import { BarbotPage } from '../pages/barbot/barbot';
 import { RecipesPage } from '../pages/recipes/recipes';
-import { TabsPage } from '../pages/tabs/tabs';
+import { RecipesFilterPage } from '../pages/recipes-filter/recipes-filter';
 import { RecipesData } from '../providers/recipes-data';
 import { Barbot } from '../providers/barbot';
 
@@ -12,7 +13,8 @@ import { Barbot } from '../providers/barbot';
     MyApp,
     BarbotPage,
     RecipesPage,
-    TabsPage
+    TabsPage,
+    RecipesFilterPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -22,7 +24,8 @@ import { Barbot } from '../providers/barbot';
     MyApp,
     BarbotPage,
     RecipesPage,
-    TabsPage
+    TabsPage,
+    RecipesFilterPage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},
