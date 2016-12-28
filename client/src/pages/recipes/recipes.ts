@@ -13,17 +13,13 @@ import { RecipesFilterPage } from '../recipes-filter/recipes-filter';
 export class RecipesPage {
 
   _searchInput: string = '';
-  recipes = [];
   command = '';
-  excludeIngredients = [];
 
   constructor(
     public nav: NavController,
     public modal: ModalController,
     public navParams: NavParams,
     private recipesData: RecipesData) {
-
-    this.recipesData.load();
 
   }
 
@@ -33,10 +29,6 @@ export class RecipesPage {
 
   set searchInput(val: string) {
     this._searchInput = val;
-  }
-
-  ngAfterViewInit() {
-    this.updateRecipes();
   }
 
   getRecipeDescription(recipe): string {
@@ -69,31 +61,12 @@ export class RecipesPage {
     });
   }
 
-  updateRecipes() {
-    this.recipesData.getAll(this.excludeIngredients).then(data => {
-      this.recipes = data;
-    });
-  }
-
   presentSettings() {
     this.nav.push(SettingsPage);
   }
 
-  presentFilter() {
-    let modalInstance = this.modal.create(RecipesFilterPage, this.excludeIngredients);
-
-    modalInstance.onDidDismiss((data: any[]) => {
-      if (data) {
-        this.excludeIngredients = data;
-        this.updateRecipes();
-      }
-    });
-
-    modalInstance.present();
-  }
-
   lucky() {
-    let filteredRecipes = this.recipes.filter(r => { return !r.hide});
+    let filteredRecipes = this.recipesData.data.filter(r => { return !r.hide});
     let recipe = filteredRecipes[Math.floor(Math.random() * filteredRecipes.length)];
     this.serve(recipe);
   }

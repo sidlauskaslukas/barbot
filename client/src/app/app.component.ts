@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Events, Platform } from 'ionic-angular';
 import { StatusBar, Dialogs, Toast, Splashscreen, BluetoothSerial } from 'ionic-native';
-
+import { RecipesData } from '../providers/recipes-data';
 import { RecipesPage } from '../pages/recipes/recipes';
 import { BARBOT } from './barbot-config';
 
@@ -14,14 +14,20 @@ export class MyApp {
   private connection: any;
 
   constructor(private events: Events,
-              platform: Platform
+              platform: Platform,
+              public recipesData: RecipesData
   ) {
-    platform.ready().then(() => {
-      StatusBar.styleDefault();
-      Splashscreen.hide();
-      this.listenToEvents();
-      this.connect();
-    });
+    platform.ready().then( () => {
+        return this.recipesData.init();
+      })
+      .then( () => {
+
+        StatusBar.styleDefault();
+        Splashscreen.hide();
+        this.listenToEvents();
+        this.connect();
+
+      });
   }
 
   listenToEvents() {

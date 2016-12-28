@@ -23,11 +23,10 @@
       </ion-thumbnail>
       <h2>I'm Feeling Lucky!</h2>
     </button>
-    <template ngFor let-recipe [ngForOf]="recipes">
+    <template ngFor let-recipe [ngForOf]="recipesData.data">
       <button
         ion-item
         (click)="serve(recipe)"
-        [hidden]="recipe.hide"
         *ngIf="matchesCompexSearch(recipe)"
         class="recipe-item"
       >

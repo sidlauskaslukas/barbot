@@ -17,14 +17,14 @@ export class RecipesFilterPage {
   ) {
     let excludedIngredients = this.navParams.data;
 
-    this.recipesData.getIngredients().then((ingredientNames: string[]) => {
-      ingredientNames.forEach(ingredientName => {
-        this.ingredients.push({
-          name: ingredientName,
-          isChecked: (excludedIngredients.indexOf(ingredientName) === -1)
-        });
-      });
-    });
+    // this.recipesData.getIngredients().then((ingredientNames: string[]) => {
+    //   ingredientNames.forEach(ingredientName => {
+    //     this.ingredients.push({
+    //       name: ingredientName,
+    //       isChecked: (excludedIngredients.indexOf(ingredientName) === -1)
+    //     });
+    //   });
+    // });
   }
 
   cancel() {

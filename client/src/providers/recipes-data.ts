@@ -1,41 +1,24 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class RecipesData {
-  data: any;
-  ingredients = [];
-  excludedIngredients = [];
+  data: Array<any> = [];
 
   constructor(private http: Http) {
-    this.data = null;
   }
 
-  load() {
-    if (this.data) {
-      return Promise.resolve(this.data);
-    }
-
-    return new Promise(resolve => {
-      this.http.get('assets/data/recipes.json')
-        .map(res => res.json())
-        .subscribe(data => {
-          this.data = data;
-          resolve(data)
-        });
-    });
-  }
-
-  getAll(excludeIngredients = []) {
-    return this.load().then(data => {
-
-      data.forEach(recipe => {
-        this.filterRecipe(recipe, excludeIngredients);
-      });
-
-      return data;
-    });
+  init() {
+    return this.http.get('assets/data/recipes.json')
+      .map(res => {
+        let resAsJSON = res.json();
+        this.data = resAsJSON;
+        return resAsJSON
+      })
+      .toPromise();
   }
 
   filterRecipe(recipe, excludeIngredients) {
@@ -51,17 +34,15 @@ export class RecipesData {
   }
 
   getIngredients() {
-    return this.load().then( data => {
-      let ingredients = [];
-      data.forEach(recipe => {
-        recipe.ingredients.forEach(ingredient => {
-          if(ingredients.indexOf(ingredient.name) === -1) {
-            ingredients.push(ingredient.name);
-          }
-        });
+    let ingredients = [];
+    this.data.forEach(recipe => {
+      recipe.ingredients.forEach(ingredient => {
+        if(ingredients.indexOf(ingredient.name) === -1) {
+          ingredients.push(ingredient.name);
+        }
       });
-      return ingredients;
     });
+    return ingredients;
   }
 
 }
