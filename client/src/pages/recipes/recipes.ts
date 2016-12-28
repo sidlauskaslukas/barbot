@@ -4,7 +4,7 @@ import { Dialogs, BluetoothSerial } from 'ionic-native';
 
 import { RecipesData } from '../../providers/recipes-data';
 import { SettingsPage } from '../settings/settings';
-import { RecipesFilterPage } from '../recipes-filter/recipes-filter';
+// import { RecipesFilterPage } from '../recipes-filter/recipes-filter';
 
 @Component({
   selector: 'page-recipes',
@@ -12,9 +12,8 @@ import { RecipesFilterPage } from '../recipes-filter/recipes-filter';
 })
 export class RecipesPage {
 
-  recipes = [];
+  _searchInput: string = '';
   command = '';
-  excludeIngredients = [];
 
   constructor(
     public nav: NavController,
@@ -22,17 +21,41 @@ export class RecipesPage {
     public navParams: NavParams,
     private recipesData: RecipesData) {
 
-    this.recipesData.load();
-
   }
 
-  ngAfterViewInit() {
-    this.updateRecipes();
+  get searchInput() {
+    return this._searchInput.trim().toLowerCase();
   }
 
-  updateRecipes() {
-    this.recipesData.getAll(this.excludeIngredients).then(data => {
-      this.recipes = data;
+  set searchInput(val: string) {
+    this._searchInput = val;
+  }
+
+  getRecipeDescription(recipe): string {
+    return recipe.ingredients.join( ', ') || '';
+  }
+
+  matchesCompexSearch(recipe): boolean {
+    let val = this.searchInput;
+    return val === '' ? true : (
+      this.matchNameSearch(recipe, val) || this.matchIngredientsSearch(recipe, val)
+    );
+  }
+
+  matchNameSearch(recipe, searchString: string): boolean {
+    return recipe.name.toLowerCase().search(searchString) !== -1;
+  }
+
+  matchIngredientsSearch(recipe, searchString: string): boolean {
+    let searchForIngredients = searchString
+      .replace(/  +/g, ' ')
+      .replace(/, /g, ',')
+      .split(',');
+
+    return searchForIngredients.every( searchIngredient => {
+      return recipe.ingredients.find( recipeIngredient => {
+        return recipeIngredient.toLowerCase().search(searchIngredient) !== -1;
+      })
     });
   }
 
@@ -40,21 +63,8 @@ export class RecipesPage {
     this.nav.push(SettingsPage);
   }
 
-  presentFilter() {
-    let modalInstance = this.modal.create(RecipesFilterPage, this.excludeIngredients);
-
-    modalInstance.onDidDismiss((data: any[]) => {
-      if (data) {
-        this.excludeIngredients = data;
-        this.updateRecipes();
-      }
-    });
-
-    modalInstance.present();
-  }
-
   lucky() {
-    let filteredRecipes = this.recipes.filter(r => { return !r.hide});
+    let filteredRecipes = this.recipesData.data.filter(r => { return !r.hide});
     let recipe = filteredRecipes[Math.floor(Math.random() * filteredRecipes.length)];
     this.serve(recipe);
   }
@@ -66,7 +76,7 @@ export class RecipesPage {
           BluetoothSerial.isConnected().then(
             status => {
               console.log('Connected to Barbot. Sending a command.');
-              this.send(recipe.command);
+              this.send(recipe);
             },
             error => {
               Dialogs.alert('Make sure you\'re connected to Barbot.', 'Not connected', 'OK');
@@ -78,8 +88,28 @@ export class RecipesPage {
     );
   }
 
-  send(command) {
-    BluetoothSerial.write(command + '\n').then(
+  send(recipe) {
+
+    let commands = [];
+    let commandString = '';
+
+    recipe.ingredients.forEach( ingredientKey => {
+      let ingredient = this.recipesData.ingredients
+        .find( ingredient => ingredient.name === ingredientKey );
+
+      commands.push(ingredient.coordinate);
+      commands.push(`F${ingredient.amount / 20} H${ingredient.hold} W${ingredient.wait}`);
+    });
+
+    commands.push('H');
+
+    while (commands.length !== 30) commands.push('0');
+
+    commandString = commands.join(',') + '\n';
+
+    console.log('commandString ', commandString);
+
+    BluetoothSerial.write(commandString).then(
       result => {
         console.log('Command has been successfuly sent to Barbot.');
       },
@@ -87,7 +117,7 @@ export class RecipesPage {
         console.log('Command has not been sent to Barbot.');
       }
     );
-    if(this.command) this.command = '';
+
   }
 
 }

@@ -15,16 +15,16 @@ export class RecipesFilterPage {
     private viewCtrl: ViewController,
     private recipesData: RecipesData
   ) {
-    let excludedIngredients = this.navParams.data;
+    // let excludedIngredients = this.navParams.data;
 
-    this.recipesData.getIngredients().then((ingredientNames: string[]) => {
-      ingredientNames.forEach(ingredientName => {
-        this.ingredients.push({
-          name: ingredientName,
-          isChecked: (excludedIngredients.indexOf(ingredientName) === -1)
-        });
-      });
-    });
+    // this.recipesData.getIngredients().then((ingredientNames: string[]) => {
+    //   ingredientNames.forEach(ingredientName => {
+    //     this.ingredients.push({
+    //       name: ingredientName,
+    //       isChecked: (excludedIngredients.indexOf(ingredientName) === -1)
+    //     });
+    //   });
+    // });
   }
 
   cancel() {

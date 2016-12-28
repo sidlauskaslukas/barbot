@@ -1,95 +1,35 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
+// import 'rxjs/add/operator/flatMap';
 
 @Injectable()
 export class RecipesData {
-  data: any;
+  data: Array<any> = [];
+  ingredients: any = {};
 
   constructor(private http: Http) {
-    this.data = null;
   }
 
-  load() {
-    if(this.data) {
-      return Promise.resolve(this.data);
-    }
-
-    return new Promise(resolve => {
-      this.http.get('assets/data/recipes.json')
-        .map(res => res.json())
-        .subscribe(data => {
-          this.data = this.processData(data);
-          resolve(this.data);
-        });
-    });
+  fetch(file) {
+    return this.http.get(`assets/data/${file}.json`)
+      .map(res => res.json());
   }
 
-  processData(data) {
-    data.forEach(recipe => {
-      this.processRecipe(recipe);
-    });
+  init() {
 
-    return data;
-  }
-
-  processRecipe(recipe) {
-    let command = [];
-    let description = [];
-
-    recipe.ingredients.forEach(ingredient => {
-      let amount = ingredient.amount / 20;
-      let durations = ingredient.durations;
-      command.push(ingredient.coordinate);
-      command.push('F' + amount + ' H' + durations.hold + ' W' + durations.wait);
-      description.push(ingredient.name);
-    });
-
-    command.push('H');
-
-    while(command.length !== 30) {
-      command.push('0');
-    }
-
-    recipe.command = command.join(',');
-    recipe.description = description.join(', ');
-  }
-
-  getAll(excludeIngredients = []) {
-    return this.load().then(data => {
-
-      data.forEach(recipe => {
-        this.filterRecipe(recipe, excludeIngredients);
-      });
-
-      return data;
-    });
-  }
-
-  filterRecipe(recipe, excludeIngredients) {
-    let matchesIngredients = false;
-
-    recipe.ingredients.forEach(ingredient => {
-      if(excludeIngredients.indexOf(ingredient.name) > -1) {
-        matchesIngredients = true;
-      }
-    });
-
-    recipe.hide = matchesIngredients;
-  }
-
-  getIngredients() {
-    return this.load().then(data => {
-      let ingredients = [];
-      data.forEach(recipe => {
-        recipe.ingredients.forEach(ingredient => {
-          if(ingredients.indexOf(ingredient.name) === -1) {
-            ingredients.push(ingredient.name);
-          }
-        });
-      });
-      return ingredients;
-    });
+    return this.fetch('recipes')
+      .flatMap( recipesData => {
+        this.data = recipesData;
+        return this.fetch('ingredients');
+      })
+      .flatMap( ingredientsData => {
+        this.ingredients = ingredientsData;
+        return Observable.of('all good');
+      })
+      .toPromise();
   }
 
 }

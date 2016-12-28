@@ -7,6 +7,12 @@
       </button>
     </ion-buttons>
   </ion-navbar>
+  <ion-toolbar>
+    <ion-searchbar
+      [(ngModel)]="_searchInput"
+    >
+    </ion-searchbar>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
@@ -17,13 +23,20 @@
       </ion-thumbnail>
       <h2>I'm Feeling Lucky!</h2>
     </button>
-    <button ion-item (click)="serve(recipe)" [hidden]="recipe.hide" *ngFor="let recipe of recipes" class="recipe-item">
-      <ion-thumbnail item-left>
-        <img src="assets/images/cocktails/{{recipe.image}}">
-      </ion-thumbnail>
-      <h2>{{recipe.name}}</h2>
-      <p>{{recipe.description}}</p>
-    </button>
+    <template ngFor let-recipe [ngForOf]="recipesData.data">
+      <button
+        ion-item
+        (click)="serve(recipe)"
+        *ngIf="matchesCompexSearch(recipe)"
+        class="recipe-item"
+      >
+          <ion-thumbnail item-left>
+            <img src="assets/images/cocktails/{{recipe.image}}">
+          </ion-thumbnail>
+          <h2>{{ recipe.name }}</h2>
+          <p>{{ getRecipeDescription(recipe) }}</p>
+      </button>
+    </template>
   </ion-list>
 
   <!-- <ion-input type="text" [(ngModel)]="command"></ion-input>
