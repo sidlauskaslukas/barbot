@@ -32,7 +32,7 @@ export class RecipesPage {
   }
 
   getRecipeDescription(recipe): string {
-    return recipe.ingredients.join( ', ') || '';
+    return recipe.ingredients.map(ingredient => ingredient.name).join( ', ') || '';
   }
 
   matchesCompexSearch(recipe): boolean {
@@ -54,7 +54,7 @@ export class RecipesPage {
 
     return searchForIngredients.every( searchIngredient => {
       return recipe.ingredients.find( recipeIngredient => {
-        return recipeIngredient.toLowerCase().search(searchIngredient) !== -1;
+        return recipeIngredient.name.toLowerCase().search(searchIngredient) !== -1;
       })
     });
   }
@@ -93,12 +93,14 @@ export class RecipesPage {
     let commands = [];
     let commandString = '';
 
-    recipe.ingredients.forEach( ingredientKey => {
-      let ingredient = this.recipesData.ingredients
-        .find( ingredient => ingredient.name === ingredientKey );
+    recipe.ingredients.forEach( recipeIngredientData => {
 
-      commands.push(ingredient.coordinate);
-      commands.push(`F${ingredient.amount / 20} H${ingredient.hold} W${ingredient.wait}`);
+      let ingredientData = this.recipesData.ingredients
+        .find( ingredient => ingredient.name === recipeIngredientData.name );
+
+      commands.push(ingredientData.coordinate);
+      commands.push(`F${recipeIngredientData.amount / 20} H${ingredientData.hold} W${ingredientData.wait}`);
+
     });
 
     commands.push('H');

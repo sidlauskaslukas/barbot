@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { RecipesData } from '../../providers/recipes-data';
 
 @Component({
   selector: 'page-settings-ingredients',
@@ -7,10 +8,19 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class SettingsIngredientsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public recipesData: RecipesData
+  ) {
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SettingsIngredientsPage');
   }
 
+  getIngredientDescription(ingredient): string {
+    return [ 'coordinate', 'hold', 'wait' ]
+      .map( attrKey => {
+        return `${attrKey}: ${ingredient[ attrKey ]}`;
+      })
+      .join(' ');
+  }
 }
