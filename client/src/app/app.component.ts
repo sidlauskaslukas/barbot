@@ -3,6 +3,7 @@ import { Events, Platform } from 'ionic-angular';
 import { StatusBar, Dialogs, Toast, Splashscreen, BluetoothSerial } from 'ionic-native';
 import { RecipesData } from '../providers/recipes-data';
 import { RecipesPage } from '../pages/recipes/recipes';
+import { Barbot } from '../providers/barbot';
 import { BARBOT } from './barbot-config';
 
 @Component({
@@ -15,6 +16,7 @@ export class MyApp {
 
   constructor(private events: Events,
               platform: Platform,
+              barbot: Barbot,
               public recipesData: RecipesData
   ) {
     platform.ready().then( () => {
@@ -40,6 +42,27 @@ export class MyApp {
     });
   }
 
+  listenToBarbotEvents() {
+    BluetoothSerial.subscribe('\n').subscribe(data => {
+      this.parseInput(data);
+    });
+  }
+
+  parseInput(data) {
+    let input = data.trim();
+    let command = input.substring(0, 1);
+
+    switch(command) {
+      case 'X':
+        let ingredient = input.substring(1);
+        this.events.publish('barbot:move', ingredient);
+        break;
+      case 'H':
+        this.events.publish('barbot:home');
+        break;
+    }
+  }
+
   connect() {
     // Ask user for permission to turn on Bluetooth
     BluetoothSerial.enable().then(
@@ -50,6 +73,7 @@ export class MyApp {
         // Connect to Barbot
         this.connection = BluetoothSerial.connect(BARBOT.MAC_ADDRESS).subscribe(
           status => {
+            this.listenToBarbotEvents();
             this.events.publish('barbot:connected');
             Toast.hide().then(
               success => {

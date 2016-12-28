@@ -70,6 +70,8 @@ void loop() {
         }
       }
 
+      Serial2.println("H");
+
       for(int y=0; y<TOTAL_ACTIONS; y++) {
         actions[y] = "0";
       }
@@ -100,10 +102,12 @@ void parseInput(String input) {
 
 void moveXTo(String input) {
   int pos = input.substring(1).toInt();
-
+  
   Serial.print("X goes to: ");
   Serial.println(pos);
-
+  
+  Serial2.println(input);
+  
   if(pos < 0 && pos >= X_MAX_POS) {
     stepper.setAcceleration(X_ACCELERATION);
     stepper.moveTo(pos);

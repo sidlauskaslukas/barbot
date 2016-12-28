@@ -3,12 +3,11 @@ import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
-// import 'rxjs/add/operator/flatMap';
 
 @Injectable()
 export class RecipesData {
   data: Array<any> = [];
-  ingredients: any = {};
+  ingredients: Array<any> = [];
 
   constructor(private http: Http) {
   }
@@ -19,7 +18,6 @@ export class RecipesData {
   }
 
   init() {
-
     return this.fetch('recipes')
       .flatMap( recipesData => {
         this.data = recipesData;
@@ -30,6 +28,13 @@ export class RecipesData {
         return Observable.of('all good');
       })
       .toPromise();
+  }
+
+  findIngredientByCoordinate(coordinate: string) {
+    let ingredient = this.ingredients.find(ingredient => {
+      return ingredient.coordinate === coordinate;
+    });
+    return ingredient;
   }
 
 }
