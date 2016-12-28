@@ -4,127 +4,256 @@
     "image":"screw_driver_small.png",
     "description":"",
     "ingredients":[
-      "Vodka",
-      "Orange Juice"]
+      {
+        "name": "Vodka",
+        "amount": 40
+      },
+      {
+        "name": "Orange Juice",
+        "amount": 100
+      }
+    ]
   },
   {
     "name":"Cuba Libre",
     "image":"cuba_libre_small.png",
     "description":"",
     "ingredients":[
-      "White Rum",
-      "Coca-Cola"]
+      {
+        "name": "White Rum",
+        "amount": 40
+      },
+      {
+        "name": "Coca-Cola",
+        "amount": 120
+      }
+    ]
   },
   {
     "name":"Sex on the Beach",
     "image":"sex_on_the_beach_small.png",
     "description":"",
     "ingredients":[
-      "Vodka",
-      "Peach Liqueur",
-      "Orange Juice",
-      "Cranberry Juice"]
+      {
+        "name": "Vodka",
+        "amount": 40
+      },
+      {
+        "name": "Peach Liqueur",
+        "amount": 20
+      },
+      {
+        "name": "Orange Juice",
+        "amount": 40
+      },
+      {
+        "name": "Cranberry Juice",
+        "amount": 40
+      }
+    ]
   },
   {
     "name":"Whiskey Cola",
     "image":"whiskey_cola_small.png",
     "description":"",
     "ingredients":[
-      "Whiskey",
-      "Coca-Cola"]
+      {
+        "name": "Whiskey",
+        "amount": 40
+      },
+      {
+        "name": "Coca-Cola",
+        "amount": 120
+      }
+    ]
   },
   {
     "name":"Cape Codder",
     "image":"cape_codder_small.png",
     "description":"",
     "ingredients":[
-      "Vodka",
-      "Cranberry Juice"]
+      {
+        "name": "Vodka",
+        "amount": 40
+      },
+      {
+        "name": "Cranberry Juice",
+        "amount": 120
+      }
+    ]
   },
   {
     "name":"Woo Woo",
     "image":"woo_woo_small.png",
     "description":"",
     "ingredients":[
-      "Vodka",
-      "Peach Liqueur",
-      "Cranberry Juice"]
+      {
+        "name": "Vodka",
+        "amount": 40
+      },
+      {
+        "name": "Peach Liqueur",
+        "amount": 20
+      },
+      {
+        "name": "Cranberry Juice",
+        "amount": 80
+      }
+    ]
   },
   {
     "name":"Wild Wild West",
     "image":"wild_wild_west_small.png",
     "description":"",
     "ingredients":[
-      "Whiskey",
-      "Peach Liqueur",
-      "Cranberry Juice"]
+      {
+        "name": "Whiskey",
+        "amount": 40
+      },
+      {
+        "name": "Peach Liqueur",
+        "amount": 20
+      },
+      {
+        "name": "Cranberry Juice",
+        "amount": 100
+      }
+    ]
   },
   {
     "name":"Vodka Coke",
     "image":"vodka_coke_small.png",
     "description":"",
     "ingredients":[
-      "Vodka",
-      "Coca-Cola"]
+      {
+        "name": "Vodka",
+        "amount": 40
+      },
+      {
+        "name": "Coca-Cola",
+        "amount": 120
+      }
+    ]
   },
   {
     "name":"Cuban Screw",
     "image":"cuban_screw_small.png",
     "description":"",
     "ingredients":[
-      "White Rum",
-      "Orange Juice"]
+      {
+        "name": "White Rum",
+        "amount": 40
+      },
+      {
+        "name": "Orange Juice",
+        "amount": 120
+      }
+    ]
   },
   {
     "name":"Sea Breeze",
     "image":"sea_breeze_small.png",
     "description":"",
     "ingredients":[
-      "Vodka",
-      "Cranberry Juice",
-      "Grapefruit Juice"]
+      {
+        "name": "Vodka",
+        "amount": 40
+      },
+      {
+        "name": "Cranberry Juice",
+        "amount": 100
+      },
+      {
+        "name": "Grapefruit Juice",
+        "amount": 20
+      }
+    ]
   },
   {
     "name":"Greyhound",
     "image":"greyhound_small.png",
     "description":"",
     "ingredients":[
-      "Vodka",
-      "Grapefruit Juice"]
+      {
+        "name": "Vodka",
+        "amount": 40
+      },
+      {
+        "name": "Grapefruit Juice",
+        "amount": 120
+      }
+    ]
   },
   {
     "name":"Jolly Rancher",
     "image":"jolly_rancher_small.png",
     "description":"",
     "ingredients":[
-      "Vodka",
-      "Melon Liqueur",
-      "Cranberry Juice"]
+      {
+        "name": "Vodka",
+        "amount": 40
+      },
+      {
+        "name": "Melon Liqueur",
+        "amount": 20
+      },
+      {
+        "name": "Cranberry Juice",
+        "amount": 100
+      }
+    ]
   },
   {
     "name":"Melon Ball",
     "image":"melon_ball_small.png",
     "description":"",
     "ingredients":[
-      "Vodka",
-      "Melon Liqueur",
-      "Orange Juice"]
+      {
+        "name": "Vodka",
+        "amount": 40
+      },
+      {
+        "name": "Melon Liqueur",
+        "amount": 20
+      },
+      {
+        "name": "Orange Juice",
+        "amount": 100
+      }
+    ]
   },
   {
     "name":"Fuzzy Navel",
     "image":"fuzzy_navel_small.png",
     "description":"",
     "ingredients":[
-      "Peach Liqueur",
-      "Orange Juice"]
+      {
+        "name": "Peach Liqueur",
+        "amount": 40
+      },
+      {
+        "name": "Orange Juice",
+        "amount": 100
+      }
+    ]
   },
   {
     "name":"Hairy Navel",
     "image":"fuzzy_navel_small.png",
     "description":"",
     "ingredients":[
-      "Peach Liqueur",
-      "Vodka",
-      "Orange Juice"]
+      {
+        "name": "Peach Liqueur",
+        "amount": 40
+      },
+      {
+        "name": "Vodka",
+        "amount": 20
+      },
+      {
+        "name": "Orange Juice",
+        "amount": 100
+      }
+    ]
   }
 ]
