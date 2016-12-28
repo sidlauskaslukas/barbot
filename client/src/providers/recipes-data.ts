@@ -5,13 +5,15 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class RecipesData {
   data: any;
+  ingredients = [];
+  excludedIngredients = [];
 
   constructor(private http: Http) {
     this.data = null;
   }
 
   load() {
-    if(this.data) {
+    if (this.data) {
       return Promise.resolve(this.data);
     }
 
@@ -19,40 +21,10 @@ export class RecipesData {
       this.http.get('assets/data/recipes.json')
         .map(res => res.json())
         .subscribe(data => {
-          this.data = this.processData(data);
-          resolve(this.data);
+          this.data = data;
+          resolve(data)
         });
     });
-  }
-
-  processData(data) {
-    data.forEach(recipe => {
-      this.processRecipe(recipe);
-    });
-
-    return data;
-  }
-
-  processRecipe(recipe) {
-    let command = [];
-    let description = [];
-
-    recipe.ingredients.forEach(ingredient => {
-      let amount = ingredient.amount / 20;
-      let durations = ingredient.durations;
-      command.push(ingredient.coordinate);
-      command.push('F' + amount + ' H' + durations.hold + ' W' + durations.wait);
-      description.push(ingredient.name);
-    });
-
-    command.push('H');
-
-    while(command.length !== 30) {
-      command.push('0');
-    }
-
-    recipe.command = command.join(',');
-    recipe.description = description.join(', ');
   }
 
   getAll(excludeIngredients = []) {
@@ -79,7 +51,7 @@ export class RecipesData {
   }
 
   getIngredients() {
-    return this.load().then(data => {
+    return this.load().then( data => {
       let ingredients = [];
       data.forEach(recipe => {
         recipe.ingredients.forEach(ingredient => {

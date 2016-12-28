@@ -12,6 +12,7 @@ import { RecipesFilterPage } from '../recipes-filter/recipes-filter';
 })
 export class RecipesPage {
 
+  _searchInput: string = '';
   recipes = [];
   command = '';
   excludeIngredients = [];
@@ -26,8 +27,46 @@ export class RecipesPage {
 
   }
 
+  get searchInput() {
+    return this._searchInput.trim().toLowerCase();
+  }
+
+  set searchInput(val: string) {
+    this._searchInput = val;
+  }
+
   ngAfterViewInit() {
     this.updateRecipes();
+  }
+
+  getRecipeDescription(recipe): string {
+    return recipe.ingredients
+      .map( ingredient => ingredient.name )
+      .join( ', ') || '';
+  }
+
+  matchesCompexSearch(recipe): boolean {
+    let val = this.searchInput;
+    return val === '' ? true : (
+      this.matchNameSearch(recipe, val) || this.matchIngredientsSearch(recipe, val)
+    );
+  }
+
+  matchNameSearch(recipe, searchString: string): boolean {
+    return recipe.name.toLowerCase().search(searchString) !== -1;
+  }
+
+  matchIngredientsSearch(recipe, searchString: string): boolean {
+    let searchForIngredients = searchString
+      .replace(/  +/g, ' ')
+      .replace(/, /g, ',')
+      .split(',');
+
+    return searchForIngredients.every( searchIngredient => {
+      return recipe.ingredients.find( recipeIngredient => {
+        return recipeIngredient.name.toLowerCase().search(searchIngredient) !== -1;
+      })
+    });
   }
 
   updateRecipes() {
@@ -66,7 +105,7 @@ export class RecipesPage {
           BluetoothSerial.isConnected().then(
             status => {
               console.log('Connected to Barbot. Sending a command.');
-              this.send(recipe.command);
+              this.send(recipe);
             },
             error => {
               Dialogs.alert('Make sure you\'re connected to Barbot.', 'Not connected', 'OK');
@@ -78,8 +117,25 @@ export class RecipesPage {
     );
   }
 
-  send(command) {
-    BluetoothSerial.write(command + '\n').then(
+  send(recipe) {
+
+    let commands = [];
+    let commandString = '';
+
+    recipe.ingredients.forEach(ingredient => {
+      commands.push(ingredient.coordinate);
+      commands.push(`F${ingredient.amount / 20} H${ingredient.durations.hold} W${ingredient.durations.wait}`);
+    });
+
+    commands.push('H');
+
+    while (commands.length !== 30) commands.push('0');
+
+    commandString = commands.join(',') + '\n';
+
+    console.log('commandString ', commandString);
+
+    BluetoothSerial.write(commandString).then(
       result => {
         console.log('Command has been successfuly sent to Barbot.');
       },
@@ -87,7 +143,7 @@ export class RecipesPage {
         console.log('Command has not been sent to Barbot.');
       }
     );
-    if(this.command) this.command = '';
+
   }
 
 }
