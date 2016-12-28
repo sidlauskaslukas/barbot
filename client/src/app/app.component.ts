@@ -2,14 +2,14 @@ import { Component } from '@angular/core';
 import { Events, Platform } from 'ionic-angular';
 import { StatusBar, Dialogs, Toast, Splashscreen, BluetoothSerial } from 'ionic-native';
 
-import { TabsPage } from '../pages/tabs/tabs';
+import { RecipesPage } from '../pages/recipes/recipes';
 import { BARBOT } from './barbot-config';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage = TabsPage;
+  rootPage = RecipesPage;
 
   private connection: any;
 

@@ -23,8 +23,8 @@
     <ion-item-divider color="light">Barbot</ion-item-divider>
     <ion-item>
       Status
-      <span item-right>
-        {{status ? status.statusText : 'Loading'}}
+      <span item-right *ngIf="status">
+        {{status.statusText}}
       </span>
     </ion-item>
   </ion-item-group>
