@@ -11,6 +11,12 @@
 
 <ion-content>
   <ion-list>
+    <button ion-item (click)="lucky()" class="feeling-lucky">
+      <ion-thumbnail item-left>
+        <img src="assets/images/cocktails/feeling_lucky_small.png">
+      </ion-thumbnail>
+      <h2>I'm Feeling Lucky!</h2>
+    </button>
     <button ion-item (click)="serve(recipe)" [hidden]="recipe.hide" *ngFor="let recipe of recipes" class="recipe-item">
       <ion-thumbnail item-left>
         <img src="assets/images/cocktails/{{recipe.image}}">
