@@ -1,0 +1,38 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Settings</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-item-group>
+    <ion-item-divider color="light">Cocktails</ion-item-divider>
+    <button ion-item (click)="presentIngredients()">
+      Ingredients
+    </button>
+    <button ion-item (click)="presentRecipes()">
+      Recipes
+    </button>
+  </ion-item-group>
+
+  <ion-item-group>
+    <ion-item-divider color="light">Barbot</ion-item-divider>
+    <ion-item>
+      Status
+      <span item-right *ngIf="status">
+        {{status.statusText}}
+      </span>
+    </ion-item>
+  </ion-item-group>
+
+  <div style="padding: 0 16px;">
+    <button ion-button block (click)="handleButtonClick()" *ngIf="status" [disabled]="buttonDisabled">
+      {{status.buttonText}}
+    </button>
+  </div>
+
+</ion-content>

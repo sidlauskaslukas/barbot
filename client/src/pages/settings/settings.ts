@@ -1,25 +1,28 @@
-import { Component, NgZone} from '@angular/core';
-import { Events, NavController } from 'ionic-angular';
+import { Component, NgZone } from '@angular/core';
+import { Events, NavController, NavParams } from 'ionic-angular';
+
 import { Barbot } from '../../providers/barbot';
+import { SettingsIngredientsPage } from '../settings-ingredients/settings-ingredients';
+import { SettingsRecipesPage } from '../settings-recipes/settings-recipes';
 
 @Component({
-  selector: 'page-barbot',
-  templateUrl: 'barbot.html'
+  selector: 'page-settings',
+  templateUrl: 'settings.html'
 })
-export class BarbotPage {
+export class SettingsPage {
 
   status: any;
-  buttonDisabled = false;
+  buttonDisabled: boolean = false;
 
-  constructor(private events: Events,
-              private nav: NavController,
+  constructor(public nav: NavController,
+              private events: Events,
               private barbot: Barbot,
               private ngZone: NgZone
   ) {
     this.listenToEvents();
   }
 
-  ionViewDidEnter() {
+  ngOnInit() {
     this.updateStatus();
   }
 
@@ -47,6 +50,14 @@ export class BarbotPage {
         this.updateStatus();
       });
     });
+  }
+
+  presentIngredients() {
+    this.nav.push(SettingsIngredientsPage);
+  }
+
+  presentRecipes() {
+    this.nav.push(SettingsRecipesPage);
   }
 
   handleButtonClick() {
