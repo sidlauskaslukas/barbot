@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Events, LoadingController } from 'ionic-angular';
 import { Toast, BluetoothSerial } from 'ionic-native';
+
+import { RecipesData } from '../providers/recipes-data';
+
 import 'rxjs/add/operator/map';
 
 @Injectable()
@@ -10,7 +13,8 @@ export class Barbot {
   private loaderIsPresent: boolean = false;
 
   constructor(public loadingCtrl: LoadingController,
-              private events: Events
+              private events: Events,
+              public recipesData: RecipesData
   ) {
     this.listenToEvents();
   }
@@ -20,7 +24,9 @@ export class Barbot {
       content: "Please wait..."
     });
 
-    this.events.subscribe('barbot:move', (ingredient) => {
+    this.events.subscribe('barbot:move', (coordinate: string) => {
+      let ingredient = this.recipesData.findIngredientByCoordinate(coordinate);
+
       if(!this.loaderIsPresent) {
         this.loaderIsPresent = true;
         loader.present();
@@ -28,7 +34,7 @@ export class Barbot {
 
       let loadingContent = this.document.getElementsByClassName("loading-content");
 
-      if(loadingContent) loadingContent[0].innerHTML = ingredient;
+      if(loadingContent) loadingContent[0].innerHTML = 'Pouring ' + ingredient.name;
     });
 
     this.events.subscribe('barbot:home', () => {

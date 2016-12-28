@@ -20,7 +20,6 @@ export class RecipesPage {
     public modal: ModalController,
     public navParams: NavParams,
     private recipesData: RecipesData) {
-
   }
 
   get searchInput() {
@@ -97,7 +96,7 @@ export class RecipesPage {
       let ingredient = this.recipesData.ingredients
         .find( ingredient => ingredient.name === ingredientKey );
 
-      commands.push(ingredient.coordinate);
+      commands.push(`X${ingredient.coordinate}`);
       commands.push(`F${ingredient.amount / 20} H${ingredient.hold} W${ingredient.wait}`);
     });
 
