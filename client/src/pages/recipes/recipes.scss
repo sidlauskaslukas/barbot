@@ -14,4 +14,12 @@ page-recipes {
       overflow: visible;
     }
   }
+
+  .feeling-lucky {
+    padding-left: 0px;
+    ion-thumbnail {
+      margin: 15px 6px 0px 6px !important;
+    }
+  }
+
 }
