@@ -4,7 +4,7 @@ import { Dialogs, BluetoothSerial } from 'ionic-native';
 
 import { RecipesData } from '../../providers/recipes-data';
 import { SettingsPage } from '../settings/settings';
-import { RecipesFilterPage } from '../recipes-filter/recipes-filter';
+// import { RecipesFilterPage } from '../recipes-filter/recipes-filter';
 
 @Component({
   selector: 'page-recipes',
@@ -32,9 +32,7 @@ export class RecipesPage {
   }
 
   getRecipeDescription(recipe): string {
-    return recipe.ingredients
-      .map( ingredient => ingredient.name )
-      .join( ', ') || '';
+    return recipe.ingredients.join( ', ') || '';
   }
 
   matchesCompexSearch(recipe): boolean {
@@ -56,7 +54,7 @@ export class RecipesPage {
 
     return searchForIngredients.every( searchIngredient => {
       return recipe.ingredients.find( recipeIngredient => {
-        return recipeIngredient.name.toLowerCase().search(searchIngredient) !== -1;
+        return recipeIngredient.toLowerCase().search(searchIngredient) !== -1;
       })
     });
   }
@@ -95,9 +93,12 @@ export class RecipesPage {
     let commands = [];
     let commandString = '';
 
-    recipe.ingredients.forEach(ingredient => {
+    recipe.ingredients.forEach( ingredientKey => {
+      let ingredient = this.recipesData.ingredients
+        .find( ingredient => ingredient.name === ingredientKey );
+
       commands.push(ingredient.coordinate);
-      commands.push(`F${ingredient.amount / 20} H${ingredient.durations.hold} W${ingredient.durations.wait}`);
+      commands.push(`F${ingredient.amount / 20} H${ingredient.hold} W${ingredient.wait}`);
     });
 
     commands.push('H');

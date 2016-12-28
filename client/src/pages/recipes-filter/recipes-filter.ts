@@ -15,7 +15,7 @@ export class RecipesFilterPage {
     private viewCtrl: ViewController,
     private recipesData: RecipesData
   ) {
-    let excludedIngredients = this.navParams.data;
+    // let excludedIngredients = this.navParams.data;
 
     // this.recipesData.getIngredients().then((ingredientNames: string[]) => {
     //   ingredientNames.forEach(ingredientName => {

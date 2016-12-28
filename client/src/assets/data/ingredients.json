@@ -1,0 +1,65 @@
+[
+  {
+    "name":"Vodka",
+    "coordinate":"X-4995",
+    "amount":"40",
+    "hold":"2500",
+    "wait":"3000"
+  },
+  {
+    "name":"Orange Juice",
+    "coordinate":"X-2510",
+    "amount":"100",
+    "hold":"2400",
+    "wait":"2500"
+  },
+  {
+    "name":"White Rum",
+    "coordinate":"X-4010",
+    "amount":"40",
+    "hold":"2500",
+    "wait":"2400"
+  },
+  {
+    "name":"Coca-Cola",
+    "coordinate":"X-1000",
+    "amount":"120",
+    "hold":"2500",
+    "wait":"2800"
+  },
+  {
+    "name":"Peach Liqueur",
+    "coordinate":"X-3500",
+    "amount":"20",
+    "hold":"2500",
+    "wait":"2400"
+  },
+  {
+    "name":"Cranberry Juice",
+    "coordinate":"X-1990",
+    "amount":"40",
+    "hold":"2300",
+    "wait":"2300"
+  },
+  {
+    "name":"Whiskey",
+    "coordinate":"X-4495",
+    "amount":"40",
+    "hold":"2400",
+    "wait":"2400"
+  },
+  {
+    "name":"Grapefruit Juice",
+    "coordinate":"X-1490",
+    "amount":"20",
+    "hold":"2600",
+    "wait":"2500"
+  },
+  {
+    "name":"Melon Liqueur",
+    "coordinate":"X-2995",
+    "amount":"20",
+    "hold":"2500",
+    "wait":"2400"
+  }
+]

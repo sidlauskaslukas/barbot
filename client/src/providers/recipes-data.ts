@@ -3,46 +3,33 @@ import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
+// import 'rxjs/add/operator/flatMap';
 
 @Injectable()
 export class RecipesData {
   data: Array<any> = [];
+  ingredients: any = {};
 
   constructor(private http: Http) {
   }
 
+  fetch(file) {
+    return this.http.get(`assets/data/${file}.json`)
+      .map(res => res.json());
+  }
+
   init() {
-    return this.http.get('assets/data/recipes.json')
-      .map(res => {
-        let resAsJSON = res.json();
-        this.data = resAsJSON;
-        return resAsJSON
+
+    return this.fetch('recipes')
+      .flatMap( recipesData => {
+        this.data = recipesData;
+        return this.fetch('ingredients');
+      })
+      .flatMap( ingredientsData => {
+        this.ingredients = ingredientsData;
+        return Observable.of('all good');
       })
       .toPromise();
-  }
-
-  filterRecipe(recipe, excludeIngredients) {
-    let matchesIngredients = false;
-
-    recipe.ingredients.forEach(ingredient => {
-      if(excludeIngredients.indexOf(ingredient.name) > -1) {
-        matchesIngredients = true;
-      }
-    });
-
-    recipe.hide = matchesIngredients;
-  }
-
-  getIngredients() {
-    let ingredients = [];
-    this.data.forEach(recipe => {
-      recipe.ingredients.forEach(ingredient => {
-        if(ingredients.indexOf(ingredient.name) === -1) {
-          ingredients.push(ingredient.name);
-        }
-      });
-    });
-    return ingredients;
   }
 
 }

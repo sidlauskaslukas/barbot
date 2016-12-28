@@ -1,5 +1,5 @@
 import { Component, NgZone } from '@angular/core';
-import { Events, NavController, NavParams } from 'ionic-angular';
+import { Events, NavController /*, NavParams */} from 'ionic-angular';
 
 import { Barbot } from '../../providers/barbot';
 import { SettingsIngredientsPage } from '../settings-ingredients/settings-ingredients';
