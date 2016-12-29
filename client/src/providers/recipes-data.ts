@@ -48,13 +48,42 @@ export class RecipesData {
       .flatMap( ingredientsData => {
         this.ingredients = ingredientsData;
 
-        this.lsDataKeys.forEach( lsDataKey => {
-          this.ls.setItem(lsDataKey, JSON.stringify( this[ lsDataKey]) );
-        });
+        this.saveDataToLS();
 
         return Observable.of('all good');
       })
       .toPromise();
+  }
+
+  saveDataToLS() {
+    this.lsDataKeys.forEach( lsDataKey => {
+      this.ls.setItem(lsDataKey, JSON.stringify( this[ lsDataKey]) );
+    });
+  }
+
+  generateNewIngrediantId() {
+    let newId = this.ingredients
+      .map(ingredient => ingredient.id)
+      .sort( (a, b) => b - a )[ 0 ] || 0;
+
+    return newId + 1;
+  }
+
+  saveIngrediant(modifiedIngredient) {
+
+    let ingredientToModify = this.ingredients.find( ingredient =>
+      ingredient.id == modifiedIngredient.id
+    );
+
+    // Modify
+    if (ingredientToModify) {
+      Object.assign(ingredientToModify, modifiedIngredient);
+    // Add new one
+    } else {
+      this.ingredients.unshift(modifiedIngredient);
+    }
+
+    this.saveDataToLS();
   }
 
 }

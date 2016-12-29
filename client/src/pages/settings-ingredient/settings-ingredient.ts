@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { RecipesData } from '../../providers/recipes-data';
+
 
 @Component({
   selector: 'page-settings-ingredient',
@@ -18,19 +20,29 @@ export class SettingsIngredientPage {
   };
 
   constructor(
-    public navCtrl: NavController,
-    public navParams: NavParams
+    public nav: NavController,
+    public navParams: NavParams,
+    public recipesData: RecipesData
   ) {
 
     this.ingredient = this.navParams.get('ingredient');
 
     if (!this.ingredient) {
       this.isNew = true;
-      this.ingredient = this.newIngredientTmpl;
+      this.ingredient = Object.assign({}, this.newIngredientTmpl);
+      this.ingredient.id = this.recipesData.generateNewIngrediantId();
     }
 
     this.ingredient = JSON.parse(JSON.stringify(this.ingredient));
 
     this.pageTitle = this.isNew ? 'New Ingrediant' : `Edit "${this.ingredient.name}"`;
+  }
+
+  saveIngrediant() {
+
+    console.log('this.ingredient', this.ingredient);
+
+    this.recipesData.saveIngrediant(this.ingredient);
+    this.nav.pop();
   }
 }
