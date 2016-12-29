@@ -9,7 +9,7 @@ import { BARBOT } from './barbot-config';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage = RecipesPage;
+  rootPage;
 
   private connection: any;
 
@@ -26,6 +26,7 @@ export class MyApp {
         Splashscreen.hide();
         this.listenToEvents();
         this.connect();
+        this.rootPage = RecipesPage;
 
       });
   }
