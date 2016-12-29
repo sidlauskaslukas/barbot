@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>{{ ingredient.name }}</ion-title>
+    <ion-title>{{ pageTitle }}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -18,7 +18,7 @@
 <ion-footer>
   <ion-toolbar padding>
     <button ion-button full>
-      Save
+      {{ isNew ? 'Create' : 'Save' }}
     </button>
   </ion-toolbar>
 </ion-footer>

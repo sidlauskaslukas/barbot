@@ -13,7 +13,6 @@ import { SettingsPage } from '../settings/settings';
 export class RecipesPage {
 
   _searchInput: string = '';
-  command = '';
 
   constructor(
     public nav: NavController,
