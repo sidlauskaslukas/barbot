@@ -31,7 +31,16 @@ export class RecipesPage {
   }
 
   getRecipeDescription(recipe): string {
-    return recipe.ingredients.map(ingredient => ingredient.name).join( ', ') || '';
+    return recipe.ingredients
+      .map(recipeIngredient => {
+
+        return this.recipesData.ingredients.find( ingredient =>
+          ingredient.id == recipeIngredient.id
+        ) || { name: ''};
+
+      })
+      .map( ingredientData => ingredientData.name )
+      .join( ', ') || '';
   }
 
   matchesCompexSearch(recipe): boolean {
@@ -53,7 +62,11 @@ export class RecipesPage {
 
     return searchForIngredients.every( searchIngredient => {
       return recipe.ingredients.find( recipeIngredient => {
-        return recipeIngredient.name.toLowerCase().search(searchIngredient) !== -1;
+
+        let ingredientData = this.recipesData.ingredients
+          .find( ingredient => ingredient.id == recipeIngredient.id);
+
+        return ingredientData.name.toLowerCase().search(searchIngredient) !== -1;
       })
     });
   }
