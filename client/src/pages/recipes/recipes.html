@@ -27,7 +27,7 @@
       <button
         ion-item
         (click)="serve(recipe)"
-        *ngIf="matchesCompexSearch(recipe)"
+        *ngIf="matchesCompexSearch(recipe) && canBeMade(recipe)"
         class="recipe-item"
       >
           <ion-thumbnail item-left>

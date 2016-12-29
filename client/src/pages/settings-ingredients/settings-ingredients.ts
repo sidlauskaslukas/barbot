@@ -17,6 +17,11 @@ export class SettingsIngredientsPage {
 
   }
 
+  toggleIngredientState(ingredient) {
+    ingredient.disabled = !ingredient.disabled;
+    this.recipesData.saveDataToLS();
+  }
+
   navIngredientPage(ingredient) {
     this.nav.push(SettingsIngredientPage, {ingredient});
   }

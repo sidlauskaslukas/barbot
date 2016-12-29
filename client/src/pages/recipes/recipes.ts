@@ -50,6 +50,19 @@ export class RecipesPage {
     );
   }
 
+  // can be made if has all ingredients enabled
+  canBeMade(recipe) {
+    return recipe.ingredients
+      .map( recipeIngredient => {
+        return this.recipesData.ingredients.find(
+          ingredient => ingredient.id == recipeIngredient.id
+        );
+      })
+      .every( ingredientData => {
+        return ingredientData && !ingredientData.disabled;
+      })
+  }
+
   matchNameSearch(recipe, searchString: string): boolean {
     return recipe.name.toLowerCase().search(searchString) !== -1;
   }
@@ -76,8 +89,9 @@ export class RecipesPage {
   }
 
   lucky() {
-    let filteredRecipes = this.recipesData.recipes.filter(r => { return !r.hide});
+    let filteredRecipes = this.recipesData.recipes.filter(r => { return this.canBeMade(r)});
     let recipe = filteredRecipes[Math.floor(Math.random() * filteredRecipes.length)];
+
     this.serve(recipe);
   }
 
