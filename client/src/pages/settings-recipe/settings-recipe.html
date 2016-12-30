@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{pageTitle}}</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="save(recipe)">Save</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngFor="let ingredient of recipe.ingredients; let i=index">
+    <ion-list-header>
+      <ion-label>
+        Ingredient {{i+1}}
+      </ion-label>
+      <ion-badge item-right color="primary">
+        {{ingredient.amount}} ml
+      </ion-badge>
+    </ion-list-header>
+    <ion-item>
+      <ion-label style="display:none;">
+        Ingredient {{i+1}}
+      </ion-label>
+      <ion-select [(ngModel)]="ingredient.name">
+        <ion-option *ngFor="let option of recipesData.ingredients" value="{{option.name}}">
+          {{option.name}}
+        </ion-option>
+      </ion-select>
+      <ion-range [(ngModel)]="ingredient.amount" min="20" max="120" step="20" snaps="true" pin="true" color="primary">
+        <ion-icon range-left small name="ios-water"></ion-icon>
+        <ion-icon range-right name="ios-water"></ion-icon>
+      </ion-range>
+    </ion-item>
+  </ion-list>
+</ion-content>

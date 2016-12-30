@@ -30,10 +30,6 @@ export class RecipesPage {
     this._searchInput = val;
   }
 
-  getRecipeDescription(recipe): string {
-    return recipe.ingredients.map(ingredient => ingredient.name).join( ', ') || '';
-  }
-
   matchesCompexSearch(recipe): boolean {
     let val = this.searchInput;
     return val === '' ? true : (
@@ -63,7 +59,7 @@ export class RecipesPage {
   }
 
   lucky() {
-    let filteredRecipes = this.recipesData.data.filter(r => { return !r.hide});
+    let filteredRecipes = this.recipesData.recipes.filter(r => { return !r.hide});
     let recipe = filteredRecipes[Math.floor(Math.random() * filteredRecipes.length)];
     this.serve(recipe);
   }

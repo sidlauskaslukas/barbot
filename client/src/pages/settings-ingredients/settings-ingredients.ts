@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { RecipesData } from '../../providers/recipes-data';
+import { SettingsIngredientPage } from '../settings-ingredient/settings-ingredient';
 
 @Component({
   selector: 'page-settings-ingredients',
@@ -9,11 +10,15 @@ import { RecipesData } from '../../providers/recipes-data';
 export class SettingsIngredientsPage {
 
   constructor(
-    public navCtrl: NavController,
+    public nav: NavController,
     public navParams: NavParams,
     public recipesData: RecipesData
   ) {
 
+  }
+
+  navIngredientPage(ingredient) {
+    this.nav.push(SettingsIngredientPage, {ingredient});
   }
 
   getIngredientDescription(ingredient): string {

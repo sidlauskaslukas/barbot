@@ -6,7 +6,9 @@ import { RecipesPage } from '../pages/recipes/recipes';
 import { SettingsPage } from '../pages/settings/settings';
 import { SettingsIngredientsPage } from '../pages/settings-ingredients/settings-ingredients';
 import { SettingsRecipesPage } from '../pages/settings-recipes/settings-recipes';
+import { SettingsRecipePage } from '../pages/settings-recipe/settings-recipe';
 import { RecipesFilterPage } from '../pages/recipes-filter/recipes-filter';
+import { SettingsIngredientPage } from '../pages/settings-ingredient/settings-ingredient';
 import { RecipesData } from '../providers/recipes-data';
 import { Barbot } from '../providers/barbot';
 
@@ -17,7 +19,9 @@ import { Barbot } from '../providers/barbot';
     RecipesFilterPage,
     SettingsPage,
     SettingsIngredientsPage,
-    SettingsRecipesPage
+    SettingsRecipesPage,
+    SettingsRecipePage,
+    SettingsIngredientPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -29,7 +33,9 @@ import { Barbot } from '../providers/barbot';
     RecipesFilterPage,
     SettingsPage,
     SettingsIngredientsPage,
-    SettingsRecipesPage
+    SettingsRecipesPage,
+    SettingsRecipePage,
+    SettingsIngredientPage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},

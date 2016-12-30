@@ -23,7 +23,7 @@
       </ion-thumbnail>
       <h2>I'm Feeling Lucky!</h2>
     </button>
-    <template ngFor let-recipe [ngForOf]="recipesData.data">
+    <template ngFor let-recipe [ngForOf]="recipesData.recipes">
       <button
         ion-item
         (click)="serve(recipe)"
@@ -34,7 +34,7 @@
             <img src="assets/images/cocktails/{{recipe.image}}">
           </ion-thumbnail>
           <h2>{{ recipe.name }}</h2>
-          <p>{{ getRecipeDescription(recipe) }}</p>
+          <p>{{ recipesData.getRecipeDescription(recipe) }}</p>
       </button>
     </template>
   </ion-list>
