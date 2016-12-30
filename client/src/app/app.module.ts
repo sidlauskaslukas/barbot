@@ -6,6 +6,7 @@ import { RecipesPage } from '../pages/recipes/recipes';
 import { SettingsPage } from '../pages/settings/settings';
 import { SettingsIngredientsPage } from '../pages/settings-ingredients/settings-ingredients';
 import { SettingsRecipesPage } from '../pages/settings-recipes/settings-recipes';
+import { SettingsRecipePage } from '../pages/settings-recipe/settings-recipe';
 import { RecipesFilterPage } from '../pages/recipes-filter/recipes-filter';
 import { SettingsIngredientPage } from '../pages/settings-ingredient/settings-ingredient';
 import { RecipesData } from '../providers/recipes-data';
@@ -19,6 +20,7 @@ import { Barbot } from '../providers/barbot';
     SettingsPage,
     SettingsIngredientsPage,
     SettingsRecipesPage,
+    SettingsRecipePage,
     SettingsIngredientPage
   ],
   imports: [
@@ -32,6 +34,7 @@ import { Barbot } from '../providers/barbot';
     SettingsPage,
     SettingsIngredientsPage,
     SettingsRecipesPage,
+    SettingsRecipePage,
     SettingsIngredientPage
   ],
   providers: [

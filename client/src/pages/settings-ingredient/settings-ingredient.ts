@@ -6,6 +6,7 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'settings-ingredient.html'
 })
 export class SettingsIngredientPage {
+  pageTitle: string = '';
   ingredientKeys = [ 'coordinate', 'hold', 'wait' ];
   ingredient;
 

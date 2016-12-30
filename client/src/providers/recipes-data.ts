@@ -41,7 +41,6 @@ export class RecipesData {
     return this.fetch('recipes')
       .flatMap( recipesData => {
         this.recipes = recipesData;
-
         return this.fetch('ingredients');
       })
       .flatMap( ingredientsData => {
@@ -56,11 +55,35 @@ export class RecipesData {
       .toPromise();
   }
 
+  saveDataToLS() {
+    this.lsDataKeys.forEach( lsDataKey => {
+      this.ls.setItem(lsDataKey, JSON.stringify( this[ lsDataKey]) );
+    });
+  }
+
+  getRecipeDescription(recipe): string {
+    return recipe.ingredients.map(ingredient => ingredient.name).join( ', ') || '';
+  }
+
   findIngredientByCoordinate(coordinate: string) {
     let ingredient = this.ingredients.find(ingredient => {
       return ingredient.coordinate === coordinate;
     });
     return ingredient;
+  }
+
+  saveRecipe(modifiedRecipe) {
+    let recipeToModify = this.recipes.find(
+      recipe => recipe.name === modifiedRecipe.name
+    );
+
+    if(recipeToModify) {
+      Object.assign(recipeToModify, modifiedRecipe);
+    } else {
+      this.recipes.unshift(modifiedRecipe);
+    }
+
+    this.saveDataToLS();
   }
 
 }
