@@ -2,7 +2,7 @@
 
 <img src="https://raw.githubusercontent.com/sidlauskaslukas/barbot/master/resources/barbot.jpg" alt="Barbot">
 
-Barbot is a cocktail mixing robot controlled with the hybrid mobile app via Bluetooth.
+Barbot is an open source Arduino cocktail mixing robot controlled with the hybrid mobile app via Bluetooth. You can check how it works [here](https://youtu.be/1JVnOlu0Daw).
 
 ## Getting started
 
@@ -16,7 +16,7 @@ Barbot is a cocktail mixing robot controlled with the hybrid mobile app via Blue
 * Clone this repository
 * From the client directory, run `npm install`
 * Install Cordova globally `npm install -g cordova`
-* Install Ionic CLI globally `npm install -g ionic@2.0.0-beta.32`
+* Install Ionic CLI globally `npm install -g ionic`
 * Run `ionic serve` in a terminal from the `client` directory
 * At this point, Ionic CLI should open the app in your browser
 
