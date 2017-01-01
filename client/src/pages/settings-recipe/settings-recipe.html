@@ -21,9 +21,9 @@
       <ion-label style="display:none;">
         Ingredient {{i+1}}
       </ion-label>
-      <ion-select [(ngModel)]="ingredient.name">
-        <ion-option *ngFor="let option of recipesData.ingredients" value="{{option.name}}">
-          {{option.name}}
+      <ion-select [(ngModel)]="ingredient.id">
+        <ion-option *ngFor="let option of recipesData.ingredients" value="{{option.id}}">
+          {{recipesData.findIngredientById(option.id).name}}
         </ion-option>
       </ion-select>
       <ion-range [(ngModel)]="ingredient.amount" min="20" max="120" step="20" snaps="true" pin="true" color="primary">

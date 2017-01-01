@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>{{ ingredient.name }}</ion-title>
+    <ion-title>{{ pageTitle }}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -9,7 +9,12 @@
   <ion-list>
     <ion-item *ngFor="let ingredientKey of ingredientKeys">
       <ion-label color="primary" stacked>{{ ingredientKey }}</ion-label>
-      <ion-input type="email" [value]="ingredient[ ingredientKey ]"></ion-input>
+      <ion-input
+        type="text"
+        [value]="ingredient[ ingredientKey ]"
+        (input)="ingredient[ ingredientKey ] = $event.target.value"
+      >
+      </ion-input>
     </ion-item>
   </ion-list>
 
@@ -17,8 +22,8 @@
 
 <ion-footer>
   <ion-toolbar padding>
-    <button ion-button full>
-      Save
+    <button (click)="saveIngrediant()" ion-button full>
+      {{ isNew ? 'Create' : 'Save' }}
     </button>
   </ion-toolbar>
 </ion-footer>

@@ -6,11 +6,11 @@
     "description":"",
     "ingredients":[
       {
-        "name": "Vodka",
+        "id": 1,
         "amount": 40
       },
       {
-        "name": "Orange Juice",
+        "id": 2,
         "amount": 100
       }
     ]
@@ -22,11 +22,11 @@
     "description":"",
     "ingredients":[
       {
-        "name": "White Rum",
+        "id": 3,
         "amount": 40
       },
       {
-        "name": "Coca-Cola",
+        "id": 4,
         "amount": 120
       }
     ]
@@ -38,19 +38,19 @@
     "description":"",
     "ingredients":[
       {
-        "name": "Vodka",
+        "id": 1,
         "amount": 40
       },
       {
-        "name": "Peach Liqueur",
+        "id": 5,
         "amount": 20
       },
       {
-        "name": "Orange Juice",
+        "id": 2,
         "amount": 40
       },
       {
-        "name": "Cranberry Juice",
+        "id": 6,
         "amount": 40
       }
     ]
@@ -62,211 +62,212 @@
     "description":"",
     "ingredients":[
       {
+        "id": 7,
         "name": "Whiskey",
         "amount": 40
       },
       {
-        "name": "Coca-Cola",
-        "amount": 120
-      }
-    ]
-  },
-  {
-    "id": "",
-    "name":"Cape Codder",
-    "image":"cape_codder_small.png",
-    "description":"",
-    "ingredients":[
-      {
-        "name": "Vodka",
-        "amount": 40
-      },
-      {
-        "name": "Cranberry Juice",
+        "id": 4,
         "amount": 120
       }
     ]
   },
   {
     "id": 5,
-    "name":"Woo Woo",
-    "image":"woo_woo_small.png",
+    "name":"Cape Codder",
+    "image":"cape_codder_small.png",
     "description":"",
     "ingredients":[
       {
-        "name": "Vodka",
+        "id": 1,
         "amount": 40
       },
       {
-        "name": "Peach Liqueur",
-        "amount": 20
-      },
-      {
-        "name": "Cranberry Juice",
-        "amount": 80
-      }
-    ]
-  },
-  {
-    "id": "",
-    "name":"Wild Wild West",
-    "image":"wild_wild_west_small.png",
-    "description":"",
-    "ingredients":[
-      {
-        "name": "Whiskey",
-        "amount": 40
-      },
-      {
-        "name": "Peach Liqueur",
-        "amount": 20
-      },
-      {
-        "name": "Cranberry Juice",
-        "amount": 100
+        "id": 6,
+        "amount": 120
       }
     ]
   },
   {
     "id": 6,
-    "name":"Vodka Coke",
-    "image":"vodka_coke_small.png",
+    "name":"Woo Woo",
+    "image":"woo_woo_small.png",
     "description":"",
     "ingredients":[
       {
-        "name": "Vodka",
+        "id": 1,
         "amount": 40
       },
       {
-        "name": "Coca-Cola",
-        "amount": 120
+        "id": 5,
+        "amount": 20
+      },
+      {
+        "id": 6,
+        "amount": 80
       }
     ]
   },
   {
     "id": 7,
-    "name":"Cuban Screw",
-    "image":"cuban_screw_small.png",
+    "name":"Wild Wild West",
+    "image":"wild_wild_west_small.png",
     "description":"",
     "ingredients":[
       {
-        "name": "White Rum",
+        "id": 7,
         "amount": 40
       },
       {
-        "name": "Orange Juice",
-        "amount": 120
+        "id": 5,
+        "amount": 20
+      },
+      {
+        "id": 6,
+        "amount": 100
       }
     ]
   },
   {
     "id": 8,
-    "name":"Sea Breeze",
-    "image":"sea_breeze_small.png",
+    "name":"Vodka Coke",
+    "image":"vodka_coke_small.png",
     "description":"",
     "ingredients":[
       {
-        "name": "Vodka",
+        "id": 1,
         "amount": 40
       },
       {
-        "name": "Cranberry Juice",
-        "amount": 100
-      },
-      {
-        "name": "Grapefruit Juice",
-        "amount": 20
+        "id": 4,
+        "amount": 120
       }
     ]
   },
   {
     "id": 9,
-    "name":"Greyhound",
-    "image":"greyhound_small.png",
+    "name":"Cuban Screw",
+    "image":"cuban_screw_small.png",
     "description":"",
     "ingredients":[
       {
-        "name": "Vodka",
+        "id": 3,
         "amount": 40
       },
       {
-        "name": "Grapefruit Juice",
+        "id": 2,
         "amount": 120
       }
     ]
   },
   {
     "id": 10,
-    "name":"Jolly Rancher",
-    "image":"jolly_rancher_small.png",
+    "name":"Sea Breeze",
+    "image":"sea_breeze_small.png",
     "description":"",
     "ingredients":[
       {
-        "name": "Vodka",
+        "id": 1,
         "amount": 40
       },
       {
-        "name": "Melon Liqueur",
-        "amount": 20
+        "id": 6,
+        "amount": 100
       },
       {
-        "name": "Cranberry Juice",
-        "amount": 100
+        "id": 8,
+        "amount": 20
       }
     ]
   },
   {
     "id": 11,
-    "name":"Melon Ball",
-    "image":"melon_ball_small.png",
+    "name":"Greyhound",
+    "image":"greyhound_small.png",
     "description":"",
     "ingredients":[
       {
-        "name": "Vodka",
+        "id": 1,
         "amount": 40
       },
       {
-        "name": "Melon Liqueur",
-        "amount": 20
-      },
-      {
-        "name": "Orange Juice",
-        "amount": 100
+        "id": 8,
+        "amount": 120
       }
     ]
   },
   {
     "id": 12,
-    "name":"Fuzzy Navel",
-    "image":"fuzzy_navel_small.png",
+    "name":"Jolly Rancher",
+    "image":"jolly_rancher_small.png",
     "description":"",
     "ingredients":[
       {
-        "name": "Peach Liqueur",
+        "id": 1,
         "amount": 40
       },
       {
-        "name": "Orange Juice",
+        "id": 9,
+        "amount": 20
+      },
+      {
+        "id": 6,
         "amount": 100
       }
     ]
   },
   {
     "id": 13,
+    "name":"Melon Ball",
+    "image":"melon_ball_small.png",
+    "description":"",
+    "ingredients":[
+      {
+        "id": 1,
+        "amount": 40
+      },
+      {
+        "id": 9,
+        "amount": 20
+      },
+      {
+        "id": 2,
+        "amount": 100
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "name":"Fuzzy Navel",
+    "image":"fuzzy_navel_small.png",
+    "description":"",
+    "ingredients":[
+      {
+        "id": 5,
+        "amount": 40
+      },
+      {
+        "id": 2,
+        "amount": 100
+      }
+    ]
+  },
+  {
+    "id": 15,
     "name":"Hairy Navel",
     "image":"fuzzy_navel_small.png",
     "description":"",
     "ingredients":[
       {
-        "name": "Vodka",
-        "amount": 20
-      },
-      {
-        "name": "Peach Liqueur",
+        "id": 5,
         "amount": 40
       },
       {
-        "name": "Orange Juice",
+        "id": 1,
+        "amount": 20
+      },
+      {
+        "id": 2,
         "amount": 100
       }
     ]

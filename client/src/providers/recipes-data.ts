@@ -46,9 +46,7 @@ export class RecipesData {
       .flatMap( ingredientsData => {
         this.ingredients = ingredientsData;
 
-        this.lsDataKeys.forEach( lsDataKey => {
-          this.ls.setItem(lsDataKey, JSON.stringify( this[ lsDataKey]) );
-        });
+        this.saveDataToLS();
 
         return Observable.of('all good');
       })
@@ -61,8 +59,47 @@ export class RecipesData {
     });
   }
 
+  generateNewIngrediantId() {
+    let newId = this.ingredients
+      .map(ingredient => ingredient.id)
+      .sort( (a, b) => b - a )[ 0 ] || 0;
+
+    return newId + 1;
+  }
+
+  saveIngrediant(modifiedIngredient) {
+
+    let ingredientToModify = this.ingredients.find( ingredient =>
+      ingredient.id == modifiedIngredient.id
+    );
+
+    // Modify
+    if (ingredientToModify) {
+      Object.assign(ingredientToModify, modifiedIngredient);
+    // Add new one
+    } else {
+      this.ingredients.unshift(modifiedIngredient);
+    }
+
+    this.saveDataToLS();
+  }
+
   getRecipeDescription(recipe): string {
-    return recipe.ingredients.map(ingredient => ingredient.name).join( ', ') || '';
+    let description: Array<any> = [];
+
+    recipe.ingredients.map(ingredient => ingredient.id).forEach(id => {
+      var ingredient = this.findIngredientById(id);
+      description.push(ingredient.name);
+    });
+
+    return description.join( ', ') || '';
+  }
+
+  findIngredientById(id) {
+    let ingredient = this.ingredients.find(ingredient => {
+      return ingredient.id === parseInt(id);
+    });
+    return ingredient;
   }
 
   findIngredientByCoordinate(coordinate: string) {
@@ -74,7 +111,7 @@ export class RecipesData {
 
   saveRecipe(modifiedRecipe) {
     let recipeToModify = this.recipes.find(
-      recipe => recipe.name === modifiedRecipe.name
+      recipe => recipe.id === modifiedRecipe.id
     );
 
     if(recipeToModify) {

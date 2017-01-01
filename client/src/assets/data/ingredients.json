@@ -1,56 +1,74 @@
 [
   {
+    "id": 1,
     "name":"Vodka",
     "coordinate":"-4995",
     "hold":"2500",
-    "wait":"3000"
+    "wait":"3000",
+    "disabled": false
   },
   {
+    "id": 2,
     "name":"Orange Juice",
     "coordinate":"-2510",
     "hold":"2400",
-    "wait":"2500"
+    "wait":"2500",
+    "disabled": false
   },
   {
+    "id": 3,
     "name":"White Rum",
     "coordinate":"-4010",
     "hold":"2500",
-    "wait":"2400"
+    "wait":"2400",
+    "disabled": false
   },
   {
+    "id": 4,
     "name":"Coca-Cola",
     "coordinate":"-1000",
     "hold":"2500",
-    "wait":"2800"
+    "wait":"2800",
+    "disabled": false
   },
   {
+    "id": 5,
     "name":"Peach Liqueur",
     "coordinate":"-3500",
     "hold":"2500",
-    "wait":"2400"
+    "wait":"2400",
+    "disabled": false
   },
   {
+    "id": 6,
     "name":"Cranberry Juice",
     "coordinate":"-1990",
     "hold":"2300",
-    "wait":"2300"
+    "wait":"2300",
+    "disabled": false
   },
   {
+    "id": 7,
     "name":"Whiskey",
     "coordinate":"-4495",
     "hold":"2400",
-    "wait":"2400"
+    "wait":"2400",
+    "disabled": false
   },
   {
+    "id": 8,
     "name":"Grapefruit Juice",
     "coordinate":"-1490",
     "hold":"2600",
-    "wait":"2500"
+    "wait":"2500",
+    "disabled": false
   },
   {
+    "id": 9,
     "name":"Melon Liqueur",
     "coordinate":"-2995",
     "hold":"2500",
-    "wait":"2400"
+    "wait":"2400",
+    "disabled": false
   }
 ]

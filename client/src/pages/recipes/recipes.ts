@@ -13,7 +13,6 @@ import { SettingsPage } from '../settings/settings';
 export class RecipesPage {
 
   _searchInput: string = '';
-  command = '';
 
   constructor(
     public nav: NavController,
@@ -30,11 +29,37 @@ export class RecipesPage {
     this._searchInput = val;
   }
 
+  getRecipeDescription(recipe): string {
+    return recipe.ingredients
+      .map(recipeIngredient => {
+
+        return this.recipesData.ingredients.find( ingredient =>
+          ingredient.id == recipeIngredient.id
+        ) || { name: ''};
+
+      })
+      .map( ingredientData => ingredientData.name )
+      .join( ', ') || '';
+  }
+
   matchesCompexSearch(recipe): boolean {
     let val = this.searchInput;
     return val === '' ? true : (
       this.matchNameSearch(recipe, val) || this.matchIngredientsSearch(recipe, val)
     );
+  }
+
+  // can be made if has all ingredients enabled
+  canBeMade(recipe) {
+    return recipe.ingredients
+      .map( recipeIngredient => {
+        return this.recipesData.ingredients.find(
+          ingredient => ingredient.id == recipeIngredient.id
+        );
+      })
+      .every( ingredientData => {
+        return ingredientData && !ingredientData.disabled;
+      })
   }
 
   matchNameSearch(recipe, searchString: string): boolean {
@@ -49,7 +74,11 @@ export class RecipesPage {
 
     return searchForIngredients.every( searchIngredient => {
       return recipe.ingredients.find( recipeIngredient => {
-        return recipeIngredient.name.toLowerCase().search(searchIngredient) !== -1;
+
+        let ingredientData = this.recipesData.ingredients
+          .find( ingredient => ingredient.id == recipeIngredient.id);
+
+        return ingredientData.name.toLowerCase().search(searchIngredient) !== -1;
       })
     });
   }
@@ -59,8 +88,9 @@ export class RecipesPage {
   }
 
   lucky() {
-    let filteredRecipes = this.recipesData.recipes.filter(r => { return !r.hide});
+    let filteredRecipes = this.recipesData.recipes.filter(r => { return this.canBeMade(r)});
     let recipe = filteredRecipes[Math.floor(Math.random() * filteredRecipes.length)];
+
     this.serve(recipe);
   }
 
@@ -95,6 +125,7 @@ export class RecipesPage {
 
       commands.push(`X${ingredientData.coordinate}`);
       commands.push(`F${recipeIngredientData.amount / 20} H${ingredientData.hold} W${ingredientData.wait}`);
+
     });
 
     commands.push('H');
