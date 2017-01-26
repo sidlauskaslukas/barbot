@@ -33,6 +33,7 @@ Barbot is an open source Arduino cocktail mixing robot controlled with the hybri
 * NEMA 17 stepper motor
 * Pololu A4988 stepper driver
 * Hitec HS-7955TG servo motor
+* Pololu Micro Maestro 6-Channel servo controller
 * GT2 6mm wide timing belt
 * GT2 timing pulley 20 teeth 5mm bore
 * Timing belt bearing
