@@ -121,7 +121,7 @@ export class RecipesPage {
     recipe.ingredients.forEach( recipeIngredientData => {
 
       let ingredientData = this.recipesData.ingredients
-        .find( ingredient => ingredient.name === recipeIngredientData.name );
+        .find( ingredient => ingredient.id === recipeIngredientData.id );
 
       commands.push(`X${ingredientData.coordinate}`);
       commands.push(`F${recipeIngredientData.amount / 20} H${ingredientData.hold} W${ingredientData.wait}`);
