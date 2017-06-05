@@ -47,3 +47,12 @@ Barbot is an open source Arduino cocktail mixing robot controlled with the hybri
 * Arduino Mega 2560
 * DC-DC converter (12V to 5V)
 * AC power supply 12V (6.67A)
+
+## List of 3D parts used in this project
+* [NEMA 17 mount](https://www.thingiverse.com/thing:5391)
+* [Adjustable belt holder](https://www.thingiverse.com/thing:745934)
+* Bearing mount
+
+## Credits and special thanks
+* [Visma Lietuva Techies Club](https://www.visma.lt) for support and supplying all needed parts
+* [Edmundas Rakauskas](https://github.com/Edmu) for contributing to the project
