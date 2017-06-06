@@ -45,13 +45,19 @@ Barbot is an open source Arduino cocktail mixing robot controlled with the hybri
 * 3 x Wall 3 bottle rack
 * Endstop microswitch
 * Arduino Mega 2560
+* Cable carrier
 * DC-DC converter (12V to 5V)
 * AC power supply 12V (6.67A)
 
 ## List of 3D parts used in this project
 * [NEMA 17 mount](https://www.thingiverse.com/thing:5391)
 * [Adjustable belt holder](https://www.thingiverse.com/thing:745934)
-* Bearing mount
+* [Idler pulley mount](https://www.thingiverse.com/thing:1225670)
+
+## Additional information
+* Dispensers used in this project won't work with liqueur and other thick drinks. You might also have problems with sugary drinks as they stick inner dispenser parts together if you leave the liquid inside the dispenser for hours
+* You can use Coca-Cola and other carbonated drinks with these dispensers, but don't forget to make a hole at the bottom of the bottle before mounting the dispenser to the bottle in order to let air get out, otherwise you will have a big fountain. Use empty bottles and fill them later through the holes after mounting the dispensers
+* Wash dispensers very well after every use, otherwise the inner dispenser parts will stick together. I would also recommend you to wash them before every use
 
 ## Credits and special thanks
 * [Visma Lietuva Techies Club](https://www.visma.lt) for support and supplying all needed parts
