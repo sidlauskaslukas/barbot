@@ -49,10 +49,13 @@ Barbot is an open source Arduino cocktail mixing robot controlled with the hybri
 * DC-DC converter (12V to 5V)
 * AC power supply 12V (6.67A)
 
-## List of 3D parts used in this project
+### List of 3D parts used in this project
 * [NEMA 17 mount](https://www.thingiverse.com/thing:5391)
 * [Adjustable belt holder](https://www.thingiverse.com/thing:745934)
 * [Idler pulley mount](https://www.thingiverse.com/thing:1225670)
+
+## Wiring diagram
+<img src="https://raw.githubusercontent.com/sidlauskaslukas/barbot/master/drawings/wiring_diagram.jpg" alt="Wiring diagram">
 
 ## Additional information
 * Dispensers used in this project won't work with liqueur and other thick drinks. You might also have problems with sugary drinks as they stick inner dispenser parts together if you leave the liquid inside the dispenser for hours
