@@ -57,6 +57,57 @@ Barbot is an open source Arduino cocktail mixing robot controlled with the hybri
 ## Wiring diagram
 <img src="https://raw.githubusercontent.com/sidlauskaslukas/barbot/master/drawings/wiring_diagram.jpg" alt="Wiring diagram">
 
+## Communication
+The mobile app and the Barbot communicates over the Serial port using the Bluetooth module HC-05 (with a few small changes, you can use other methods for communication like USB or WiFi too). See all available communication commands below in the "Available commands" section.
+
+## Available commands
+
+Multiple commands can be sent in a single message by separating them with a comma ",". All the commands will be executed one after another in the order in which they're written. The messages must be ended with a newline "\n" character to be run.
+
+**Example**
+```
+X-4995,F2 H2500 W3000,X-1990,F6 H2300 W2300,H
+```
+
+### X: Move X axis
+
+**Usage**  
+`Xnnn`
+
+**Parameters**  
+Xnnn - The position to move to on the X axis
+
+**Example**  
+```
+X-4995 ; Move to -4995 position on the X axis
+```
+
+### H: Home X axis
+**Usage**  
+`H`
+
+**Parameters**  
+*This command can be used without any parameters*
+
+**Example**  
+```
+H ; Home the X axis
+```
+
+### F: Pour
+**Usage**  
+`Fnnn Hnnn Wnnn`
+
+**Parameters**  
+Fnnn - Times to pour  
+Hnnn - Time duration (in ms) to hold dispenser in open position  
+Wnnn - Time duration (in ms) to wait till next pour  
+
+**Example**
+```
+F2 H2500 W3000 ; Pour two times, hold dispenser open for 2500ms and wait for 3000ms between each pour
+```
+
 ## Additional information
 * Dispensers used in this project won't work with liqueur and other thick drinks. You might also have problems with sugary drinks as they stick inner dispenser parts together if you leave the liquid inside the dispenser for hours
 * You can use Coca-Cola and other carbonated drinks with these dispensers, but don't forget to make a hole at the bottom of the bottle before mounting the dispenser to the bottle in order to let air get out, otherwise you will have a big fountain. Use empty bottles and fill them later through the holes after mounting the dispensers
