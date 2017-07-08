@@ -58,11 +58,18 @@ Barbot is an open source Arduino cocktail mixing robot controlled with the hybri
 <img src="https://raw.githubusercontent.com/sidlauskaslukas/barbot/master/drawings/wiring_diagram.jpg" alt="Wiring diagram">
 
 ## Communication
-The mobile app and the Barbot communicates over the Serial port using the Bluetooth module HC-05. All messages needs to be ended with a \n to be run.
+The mobile app and the Barbot communicates over the Serial port using the Bluetooth module HC-05 (with a few small changes, you can use other methods for communication like USB or WiFi too). See all available communication commands below in the "Available commands" section.
 
-### Available commands
+## Available commands
 
-#### X: Move X axis
+Multiple commands can be sent in a single message by separating them with a comma ",". All the commands will be executed one after another in the order in which they're written. The messages must be ended with a newline "\n" character to be run.
+
+**Example**
+```
+X-4995,F2 H2500 W3000,X-1990,F6 H2300 W2300,H
+```
+
+### X: Move X axis
 
 **Usage**  
 `Xnnn`
@@ -75,7 +82,7 @@ Xnnn - The position to move to on the X axis
 X-4995 ; Move to -4995 position on the X axis
 ```
 
-#### H: Home X axis
+### H: Home X axis
 **Usage**  
 `H`
 
@@ -87,7 +94,7 @@ X-4995 ; Move to -4995 position on the X axis
 H ; Home the X axis
 ```
 
-#### F: Pour
+### F: Pour
 **Usage**  
 `Fnnn Hnnn Wnnn`
 
