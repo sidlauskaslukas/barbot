@@ -1,23 +1,57 @@
+#include "Adafruit_NeoPixel.h"
 #include "AccelStepper.h"
 #include "PololuMaestro.h"
+
 #include "Configuration.h"
+#ifdef __AVR__
+  #include <avr/power.h>
+#endif
 
 String serialBuffer = "";
 String actions[TOTAL_ACTIONS];
 
 int counter = 0;
 int lastIndex = 0;
+bool stripIsOff = false;
 
+Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, STRIP_PIN, NEO_GRB + NEO_KHZ800);
 AccelStepper stepper(X_INTERFACE_TYPE, X_STEP_PIN, X_DIR_PIN); // Define a stepper and the pins it will use
 MicroMaestro maestro(maestroSerial); // Define a servo controller
 
 void setup() {
+  pixels.begin();
+  pixels.show();
+  setStripColor(255,255,255);
   Serial.begin(9600); // Serial port for debugging
   maestroSerial.begin(9600); // Servo controller
   Serial2.begin(9600); // Bluetooth module
   stepper.setMaxSpeed(X_MAX_SPEED); // Sets the maximum speed the X axis accelerate up to
   pinMode(X_ENDSTOP_PIN, INPUT_PULLUP); // Initialize endstop pin with the internal pull-up resistor enabled
   homeXAxis(); // Return the X axis to it's home position at the startup
+}
+
+void setStripColor(byte red, byte green, byte blue) {
+  for(int i=0; i<NUMPIXELS;i++) {
+    pixels.setPixelColor(i, pixels.Color(red,green,blue));
+    pixels.show();
+  }
+}
+
+void blinkStrip() {
+  for(int i=0; i<50; i++) {
+    if(stripIsOff == true) {
+      setStripColor(255,255,255);
+      stripIsOff = false;
+    } else {
+      setStripColor(0,0,0);
+      stripIsOff = true;
+    }
+    pixels.show();
+    delay(100);
+  }
+  stripIsOff = false;
+  setStripColor(255,255,255);
+  pixels.show();
 }
 
 void homeXAxis() {
@@ -67,10 +101,12 @@ void loop() {
       for(int z=0; z<TOTAL_ACTIONS; z++) {
         if(actions[z] != "0") {
           parseInput(actions[z]);
+          if(actions[z] == "H") {
+            Serial2.println("H");
+            blinkStrip();
+          }
         }
       }
-
-      Serial2.println("H");
 
       for(int y=0; y<TOTAL_ACTIONS; y++) {
         actions[y] = "0";
@@ -78,11 +114,12 @@ void loop() {
       
       serialBuffer = "";
       counter = 0;
-      lastIndex = 0;      
+      lastIndex = 0;
+      
+      serialFlush();     
     }
   }
 }
-
 void parseInput(String input) {
   input.trim();
   byte command = input.charAt(0);
@@ -176,3 +213,8 @@ int getParameterValue(String input, int z) {
     }
   }
 }
+
+void serialFlush() {
+  while(Serial2.available()>0) Serial2.read();
+}
+

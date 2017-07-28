@@ -28,4 +28,8 @@
 #define TOTAL_ACTIONS 30 // Total number of actions
 #define DELAY_BETWEEN_INGREDIENTS 600 // Time duration to wait before travelling to the next ingredient
 
+// Neopixel
+#define STRIP_PIN 48 // Which pin on the Arduino is connected to the NeoPixels?
+#define NUMPIXELS 12 // How many NeoPixels are attached to the Arduino?
+
 #endif
