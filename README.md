@@ -2,7 +2,11 @@
 
 <img src="https://raw.githubusercontent.com/sidlauskaslukas/barbot/master/resources/barbot.jpg" alt="Barbot">
 
-Barbot is an open source Arduino cocktail mixing robot controlled with the hybrid mobile app via Bluetooth. You can check how it works [here](https://youtu.be/1JVnOlu0Daw).
+Barbot is an open source Arduino cocktail mixing robot controlled with the hybrid mobile app via Bluetooth. It has been designed to hold up to 9 bottles of ingredients for making the cocktails, dispensing the correct amount from each to mix your cocktail of choice.
+
+Cocktails can be chosen using the mobile app (available for iOS and Android) that connects to the Barbot via Bluetooth. In the app you can also enable/disable ingredients, change the position of each ingredient, edit the recipes and change the amount of each ingredient used in the cocktails and so on.
+
+You can check how it works [here](https://youtu.be/1JVnOlu0Daw).
 
 ## Getting started
 
@@ -16,7 +20,7 @@ Barbot is an open source Arduino cocktail mixing robot controlled with the hybri
 * Clone this repository
 * From the client directory, run `npm install`
 * Install Cordova globally `npm install -g cordova`
-* Install Ionic CLI globally `npm install -g ionic`
+* Install Ionic CLI globally `npm install -g ionic@2.0.0`
 * Run `ionic serve` in a terminal from the `client` directory
 * At this point, Ionic CLI should open the app in your browser
 
@@ -112,6 +116,9 @@ F2 H2500 W3000 ; Pour two times, hold dispenser open for 2500ms and wait for 300
 * Dispensers used in this project won't work with liqueur and other thick drinks. You might also have problems with sugary drinks as they stick inner dispenser parts together if you leave the liquid inside the dispenser for hours
 * You can use Coca-Cola and other carbonated drinks with these dispensers, but don't forget to make a hole at the bottom of the bottle before mounting the dispenser to the bottle in order to let air get out, otherwise you will have a big fountain. Use empty bottles and fill them later through the holes after mounting the dispensers
 * Wash dispensers very well after every use, otherwise the inner dispenser parts will stick together. I would also recommend you to wash them before every use
+
+## Community help
+The Barbot Slack group is your first stop for questions and advice about building your own Barbot. You can join the Barbot Slack group [here](https://openbarbot.herokuapp.com).
 
 ## Credits and special thanks
 * [Visma Lietuva Techies Club](https://www.visma.lt) for support and supplying all needed parts
