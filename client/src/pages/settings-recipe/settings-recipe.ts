@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, ModalController, NavParams } from 'ionic-angular';
 
+import { AddIngredientPage } from '../add-ingredient/add-ingredient';
 import { RecipesData } from '../../providers/recipes-data';
 
 @Component({
@@ -10,7 +11,6 @@ import { RecipesData } from '../../providers/recipes-data';
 export class SettingsRecipePage {
   pageTitle: string = '';
   isNew: boolean = false;
-  ingredients: Array<any> = [];
   recipe = {
     id: '',
     name: '',
@@ -21,7 +21,10 @@ export class SettingsRecipePage {
     ingredients: []
   };
 
-  constructor(public nav: NavController, public navParams: NavParams, private recipesData: RecipesData) {
+  constructor(public nav: NavController,
+              public navParams: NavParams,
+              private recipesData: RecipesData,
+              public modalCtrl: ModalController) {
     this.init();
   }
 
@@ -39,6 +42,18 @@ export class SettingsRecipePage {
   save(recipe) {
     this.recipesData.saveRecipe(recipe);
     this.nav.pop();
+  }
+
+  addIngredient() {
+    let addIngredientModal = this.modalCtrl.create(AddIngredientPage, {recipeTitle: this.recipe.name});
+    addIngredientModal.onDidDismiss(ingredient => {
+      if(ingredient) this.recipe.ingredients.push({id: ingredient.id, amount: 40});
+    });
+    addIngredientModal.present();
+  }
+
+  removeIngredient(index) {
+    this.recipe.ingredients.splice(index,1);
   }
 
 }
