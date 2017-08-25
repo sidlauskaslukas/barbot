@@ -20,7 +20,7 @@ You can check how it works [here](https://youtu.be/1JVnOlu0Daw).
 * Clone this repository
 * From the client directory, run `npm install`
 * Install Cordova globally `npm install -g cordova`
-* Install Ionic CLI globally `npm install -g ionic@2.3.0`
+* Install Ionic CLI globally `npm install -g ionic@2.2.3`
 * Run `ionic serve` in a terminal from the `client` directory
 * At this point, Ionic CLI should open the app in your browser
 
