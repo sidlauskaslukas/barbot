@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Add ingredient to "{{recipeTitle}}"</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="cancel()">Cancel</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <button ion-item *ngFor="let ingredient of recipesData.ingredients" (click)="add(ingredient)">
+      {{ingredient.name}}
+    </button>
+  </ion-list>
+</ion-content>
