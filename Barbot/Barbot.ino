@@ -14,14 +14,12 @@ int counter = 0;
 int lastIndex = 0;
 bool stripIsOff = false;
 
-Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, STRIP_PIN, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUMPIXELS, STRIP_PIN, NEO_GRB + NEO_KHZ800); // Define a NeoPixel strip, number of pixels and the pin it will use
 AccelStepper stepper(X_INTERFACE_TYPE, X_STEP_PIN, X_DIR_PIN); // Define a stepper and the pins it will use
 MicroMaestro maestro(maestroSerial); // Define a servo controller
 
 void setup() {
-  pixels.begin();
-  pixels.show();
-  setStripColor(255,255,255);
+  initLedStrip(strip);
   Serial.begin(9600); // Serial port for debugging
   maestroSerial.begin(9600); // Servo controller
   Serial2.begin(9600); // Bluetooth module
@@ -30,28 +28,34 @@ void setup() {
   homeXAxis(); // Return the X axis to it's home position at the startup
 }
 
-void setStripColor(byte red, byte green, byte blue) {
+void initLedStrip(Adafruit_NeoPixel strip) {
+  strip.begin();
+  strip.show();
+  setStripColor(255,255,255,strip);
+}
+
+void setStripColor(byte red, byte green, byte blue, Adafruit_NeoPixel strip) {
   for(int i=0; i<NUMPIXELS;i++) {
-    pixels.setPixelColor(i, pixels.Color(red,green,blue));
-    pixels.show();
+    strip.setPixelColor(i, strip.Color(red,green,blue));
+    strip.show();
   }
 }
 
-void blinkStrip() {
-  for(int i=0; i<50; i++) {
+void blinkStrip(int timesToBlink, int blinkDelay, Adafruit_NeoPixel strip) {
+  for(int i=0; i<timesToBlink; i++) {
     if(stripIsOff == true) {
-      setStripColor(255,255,255);
+      setStripColor(255,255,255,strip);
       stripIsOff = false;
     } else {
-      setStripColor(0,0,0);
+      setStripColor(0,0,0,strip);
       stripIsOff = true;
     }
-    pixels.show();
-    delay(100);
+    strip.show();
+    delay(blinkDelay);
   }
   stripIsOff = false;
-  setStripColor(255,255,255);
-  pixels.show();
+  setStripColor(255,255,255,strip);
+  strip.show();
 }
 
 void homeXAxis() {
@@ -103,7 +107,7 @@ void loop() {
           parseInput(actions[z]);
           if(actions[z] == "H") {
             Serial2.println("H");
-            blinkStrip();
+            blinkStrip(50,100,strip);
           }
         }
       }
