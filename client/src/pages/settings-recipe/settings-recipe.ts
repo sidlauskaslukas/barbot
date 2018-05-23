@@ -56,4 +56,12 @@ export class SettingsRecipePage {
     this.recipe.ingredients.splice(index,1);
   }
 
+  deleteCurrent(recipe){
+    var index = this.recipesData.recipes.findIndex(item => item.id == this.recipe.id);
+    this.recipesData.recipes.splice(index,1);
+    this.recipesData.saveDataToLS();
+    this.nav.pop();
+  }
+
+
 }

@@ -20,6 +20,7 @@ export class RecipesData {
   }
 
   init() {
+    //this.ls.clear(); // this is to clear everything on start Just for Debugging
     let shouldCopyPredefinedData;
 
     shouldCopyPredefinedData = this.lsDataKeys.some( datasetKey =>
@@ -27,6 +28,10 @@ export class RecipesData {
     );
 
     return !shouldCopyPredefinedData ? this.loadFromLS() : this.loadFromJSON();
+  }
+
+  clearData(){
+    this.ls.clear();
   }
 
   loadFromLS() {
@@ -68,7 +73,6 @@ export class RecipesData {
   }
 
   saveIngrediant(modifiedIngredient) {
-
     let ingredientToModify = this.ingredients.find( ingredient =>
       ingredient.id == modifiedIngredient.id
     );
@@ -80,7 +84,6 @@ export class RecipesData {
     } else {
       this.ingredients.unshift(modifiedIngredient);
     }
-
     this.saveDataToLS();
   }
 

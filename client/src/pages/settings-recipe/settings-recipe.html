@@ -3,11 +3,21 @@
     <ion-title>{{pageTitle}}</ion-title>
     <ion-buttons end>
       <button ion-button (click)="save(recipe)">Save</button>
+      <button ion-button (click)="deleteCurrent(recipe)">Delete</button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+  <ion-label color="primary"> Edit Recipe Name</ion-label>
+  <ion-input
+    type="text"
+    [value]="recipe.name"
+    (input)="recipe.name = $event.target.value"
+  >
+  </ion-input>
+  <ion-item-divider color="light">Recipe Ingredients list</ion-item-divider>
+
   <ion-list *ngFor="let ingredient of recipe.ingredients; let i=index">
     <ion-list-header>
       <ion-label>
