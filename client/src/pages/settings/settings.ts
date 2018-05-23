@@ -1,9 +1,11 @@
 import { Component, NgZone } from '@angular/core';
 import { Events, NavController /*, NavParams */} from 'ionic-angular';
+import { AlertController } from 'ionic-angular';
 
 import { Barbot } from '../../providers/barbot';
 import { SettingsIngredientsPage } from '../settings-ingredients/settings-ingredients';
 import { SettingsRecipesPage } from '../settings-recipes/settings-recipes';
+import { RecipesData } from '../../providers/recipes-data';
 
 @Component({
   selector: 'page-settings',
@@ -14,10 +16,14 @@ export class SettingsPage {
   status: any;
   buttonDisabled: boolean = false;
 
+
+
   constructor(public nav: NavController,
               private events: Events,
               private barbot: Barbot,
-              private ngZone: NgZone
+              public atrCtrl: AlertController,
+              private ngZone: NgZone,
+              public recipesData: RecipesData
   ) {
     this.listenToEvents();
   }
@@ -52,6 +58,42 @@ export class SettingsPage {
     });
   }
 
+
+  showPromptAlert() {
+  let alert = this.atrCtrl.create({
+    title: 'Clear local data',
+    inputs: [
+      {
+        name: 'pin',
+        placeholder: 'Enter pin',
+        type: 'password'
+      }
+    ],
+    buttons: [
+      {
+        text: 'Cancel',
+        role: 'cancel',
+        handler: data => {
+          console.log('You Clicked on Cancel');
+        }
+      },
+      {
+        text: 'Clear Data',
+        handler: data => {
+          if (data.pin == '2345') {
+            this.recipesData.clearData();
+            this.recipesData.init();
+          } else {
+            // invalid login
+            return false;
+          }
+
+        }
+      }
+    ]
+  });
+  alert.present();
+}
   presentIngredients() {
     this.nav.push(SettingsIngredientsPage);
   }

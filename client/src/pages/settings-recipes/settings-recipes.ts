@@ -22,5 +22,18 @@ export class SettingsRecipesPage {
   presentRecipe(recipe) {
     this.nav.push(SettingsRecipePage, {recipe});
   }
+  
+  createNewRecipe() {
+    console.log("Total number of existing recipes  = ", this.recipesData.recipes.length );
+    let new_id = this.recipesData.recipes
+      .map(recipe => recipe.id)
+      .sort( (a, b) => b - a )[ 0 ] || 0;
+    new_id = new_id + 1;
+    console.log("Creating New Recipe with id = ", new_id );
+    this.recipes.push({id: new_id , name: "NEW ITEM  !!!", image:"cape_codder_small.png", description: "", ingredients:[]})
+    var indexOfTheOneJustCreated = this.recipesData.recipes.findIndex(item => item.id == new_id);
+    var recipe = this.recipesData.recipes[indexOfTheOneJustCreated];
+    this.nav.push(SettingsRecipePage, {recipe});
+  }
 
 }
