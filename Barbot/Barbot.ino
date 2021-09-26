@@ -78,7 +78,9 @@ void loop() {
       
       serialBuffer = "";
       counter = 0;
-      lastIndex = 0;      
+      lastIndex = 0;
+
+      serialFlush();
     }
   }
 }
@@ -175,4 +177,8 @@ int getParameterValue(String input, int z) {
       return input.substring(z+1, y+1).toInt();
     }
   }
+}
+
+void serialFlush() {
+  while(Serial2.available()>0) Serial2.read();
 }
