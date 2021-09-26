@@ -11,16 +11,17 @@ You can check how it works [here](https://youtu.be/1JVnOlu0Daw).
 ## Getting started
 
 ### Requirements
-* Node.js
-* Npm (Node comes with npm)
+* Node v7.0.0 (I would recommend installing using Nvm [ [installing NVM](https://github.com/nvm-sh/nvm#installing-and-updating) ])
 * Android SDK tools [ [installing Cordova requirements](https://cordova.apache.org/docs/en/latest/guide/platforms/android/#installing-the-requirements) ] or Xcode depending on which platform you want to use
 * Arduino IDE
 
 ### Client
 * Clone this repository
+* Install Node version 7.0.0 `nvm install 7.0.0`
+* Switch to Node version 7.0.0 `nvm use 7.0.0`
 * From the client directory, run `npm install`
-* Install Cordova globally `npm install -g cordova`
-* Install Ionic CLI globally `npm install -g ionic@2.2.3`
+* Install Cordova 6.3.0 globally `npm install -g cordova@6.3.0`
+* Install Ionic CLI 2.2.3 globally `npm install -g ionic@2.2.3`
 * Run `ionic serve` in a terminal from the `client` directory
 * At this point, Ionic CLI should open the app in your browser
 
