@@ -12,10 +12,11 @@
     <ion-list-header>
       <ion-label>
         Ingredient {{i+1}}
+        <ion-badge color="primary">
+          {{ingredient.amount}} ml
+        </ion-badge>
       </ion-label>
-      <ion-badge item-right color="primary">
-        {{ingredient.amount}} ml
-      </ion-badge>
+      <button ion-button item-right small (click)="removeIngredient(i)">Delete</button>
     </ion-list-header>
     <ion-item>
       <ion-label style="display:none;">
@@ -32,4 +33,7 @@
       </ion-range>
     </ion-item>
   </ion-list>
+  <ion-fab right bottom>
+    <button ion-fab (click)="addIngredient()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
 </ion-content>
