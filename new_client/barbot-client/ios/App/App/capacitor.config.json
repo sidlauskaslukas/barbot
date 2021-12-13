@@ -1,0 +1,6 @@
+{
+	"appId": "com.barbot.client",
+	"appName": "Barbot",
+	"webDir": "build",
+	"bundledWebRuntime": false
+}

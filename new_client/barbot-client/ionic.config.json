@@ -1,0 +1,7 @@
+{
+  "name": "barbot=client",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
